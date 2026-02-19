@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Films — Delfine Paolini</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bone);
+      color:var(--charcoal);
+    }
+    .wrap{ width:min(980px, 88vw); margin:0 auto; }
+
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+    }
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(244,241,234,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
+    }
+    nav a:hover{ color: var(--wine); opacity: 1; }
+
+    header{
+      padding: 120px 0 30px 0;
+    }
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(40px, 5vw, 58px);
+      margin: 0 0 14px 0;
+    }
+    .sub{
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(27,27,27,0.84);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      padding: 34px 0 90px 0;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid rgba(27,27,27,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(107,31,31,0.30);
+    }
+    .card h2{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+    .meta{
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.62);
+      margin-bottom: 12px;
+    }
+    .card p{
+      margin: 0 0 14px 0;
+      line-height: 1.85;
+      color: rgba(27,27,27,0.90);
+    }
+    .link{
+      display:inline-block;
+      color: var(--wine);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      border: 1px solid rgba(107,31,31,0.35);
+      border-radius: 999px;
+      padding: 8px 10px;
+    }
+    .link:hover{ background: rgba(107,31,31,0.07); }
+
+    footer{
+      border-top: 1px solid var(--rule);
+      padding: 46px 0 60px 0;
+      color: rgba(27,27,27,0.55);
+      font-size: 13px;
+    }
+    @media (max-width: 760px){
+      nav{ padding: 0 16px; }
+      .card{ grid-column: span 12; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <h1>Films</h1>
+      <p class="sub">
+        Selected narrative features and works in development. Materials available upon request.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <div class="card">
+        <h2>A Wonderful Way with Dragons</h2>
+        <div class="meta">Feature · Writer/Director/Producer</div>
+        <p>
+          Award-winning debut feature—lyrical, psychologically intimate cinema grounded in painterly image-making.
+        </p>
+        <a class="link" href="dragons.html">View film</a>
+      </div>
+
+      <div class="card">
+        <h2>Le Rouge Originel</h2>
+        <div class="meta">Feature · In development</div>
+        <p>
+          A woman embeds herself in the life of a criminal—and slowly becomes capable of sin.
+        </p>
+        <a class="link" href="index.html#current">View project</a>
+      </div>
+
+      <div class="card">
+        <h2>Reds Hearten</h2>
+        <div class="meta">Feature · In development</div>
+        <p>
+          Companion film to <em>Le Rouge Originel</em>. (We’ll build this page next.)
+        </p>
+        <a class="link" href="index.html#contact">Request materials</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Delfine Paolini</div>
+  </footer>
+</body>
+</html>
