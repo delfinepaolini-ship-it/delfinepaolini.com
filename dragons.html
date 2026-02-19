@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Wonderful Way with Dragons — Delfine Paolini</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+    }
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bone);
+      color:var(--charcoal);
+    }
+    .wrap{ width:min(860px, 88vw); margin:0 auto; }
+
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+    }
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(244,241,234,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
+    }
+    nav a:hover{ color: var(--wine); opacity: 1; }
+
+    header{
+      padding: 120px 0 26px 0;
+    }
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(38px, 5vw, 56px);
+      margin: 0 0 12px 0;
+    }
+    .meta{
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.62);
+      margin-bottom: 22px;
+    }
+    p{
+      margin: 0 0 18px 0;
+      line-height: 1.9;
+      color: rgba(27,27,27,0.92);
+      font-size: 16px;
+    }
+    .rule{ height:1px; background: var(--rule); margin: 30px 0; }
+    .pill{
+      display:inline-block;
+      color: var(--wine);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      border: 1px solid rgba(107,31,31,0.35);
+      border-radius: 999px;
+      padding: 8px 10px;
+    }
+    .pill:hover{ background: rgba(107,31,31,0.07); }
+
+    footer{
+      border-top: 1px solid var(--rule);
+      padding: 46px 0 60px 0;
+      color: rgba(27,27,27,0.55);
+      font-size: 13px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px){
+      nav{ padding: 0 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <h1>A Wonderful Way with Dragons</h1>
+      <div class="meta">Feature · Writer/Director/Producer</div>
+
+      <p>
+        (We’ll refine this page once you paste in your preferred synopsis, key credits, trailer link, and laurels.)
+      </p>
+
+      <a class="pill" href="index.html#contact">Request press materials</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="rule"></div>
+
+    <p>
+      If you want, send me:
+      <strong>1</strong> one-paragraph synopsis,
+      <strong>2</strong> awards/festival highlights (a short list),
+      <strong>3</strong> trailer/Vimeo link (optional),
+      and I’ll format this page to feel like a festival press kit—restrained, elegant, and credible.
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Delfine Paolini</div>
+  </footer>
+</body>
+</html>
