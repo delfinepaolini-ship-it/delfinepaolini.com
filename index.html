@@ -1,110 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delfine Paolini</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delfine Paolini</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #F4F1EA;
-    color: #1B1B1B;
-}
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --muted:#6c6c6c;
+      --rule: rgba(27,27,27,0.12);
+    }
 
-nav {
-    position: fixed;
-    top: 30px;
-    right: 60px;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bone);
+      color:var(--charcoal);
+    }
 
-nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #1B1F1F;
-    color: #1B1B1B;
-}
+    /* Top nav */
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+      pointer-events: none;
+    }
+    nav .nav-inner{
+      pointer-events: auto;
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(244,241,234,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
+    }
+    nav a:hover{ color: var(--wine); opacity: 1; }
 
-nav a:hover {
-    color: #6B1F1F;
-}
+    /* Layout */
+    .wrap{ width:min(980px, 88vw); margin:0 auto; }
 
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
+    /* Hero */
+    .hero{
+      min-height: 92vh;
+      display:flex;
+      align-items:center;
+      padding-top: 90px;
+      padding-bottom: 60px;
+    }
+    .hero h1{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 66px);
+      margin: 0 0 16px 0;
+      letter-spacing: 0.2px;
+    }
+    .hero .role{
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.70);
+      margin-bottom: 18px;
+    }
+    .hero .thesis{
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 740px;
+      margin: 0;
+      color: rgba(27,27,27,0.90);
+    }
+    .hero .thesis em{
+      font-style: normal;
+      color: var(--wine);
+    }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    margin: 0;
-}
+    /* Rothko field (atmospheric, Option A mood) */
+    .field{
+      position: relative;
+      height: 68vh;
+      min-height: 520px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      overflow: hidden;
+      background-image: url('3F265C78-DC32-40AC-9872-5CF5A1540872.PNG');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.78) contrast(1.06);
+    }
+    /* Soft vignette + bone fade to integrate with page */
+    .field::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(80% 80% at 50% 50%, rgba(0,0,0,0.12), rgba(0,0,0,0.28)),
+        linear-gradient(to bottom, rgba(244,241,234,0.95), rgba(244,241,234,0.00) 22%, rgba(244,241,234,0.00) 78%, rgba(244,241,234,0.92));
+      pointer-events:none;
+    }
 
-.hero p {
-    margin-top: 20px;
-    font-size: 18px;
-    max-width: 600px;
-}
+    /* Sections */
+    section.block{ padding: 96px 0; }
+    .kicker{
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.60);
+      margin: 0 0 10px 0;
+    }
+    h2{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 30px;
+      margin: 0 0 22px 0;
+    }
+    p{
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 0 0 18px 0;
+      color: rgba(27,27,27,0.92);
+    }
+    .rule{ height:1px; background: var(--rule); margin: 34px 0; }
 
-.section {
-    padding: 120px 20%;
-}
+    /* Films grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid rgba(27,27,27,0.12);
+      border-radius: 18px;
+      padding: 18px 18px 16px 18px;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .card h3{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      margin: 0 0 8px 0;
+      font-size: 22px;
+    }
+    .meta{
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.62);
+      margin-bottom: 12px;
+    }
+    .pill{
+      display:inline-block;
+      border: 1px solid rgba(107,31,31,0.35);
+      color: var(--wine);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .pill:hover{
+      background: rgba(107,31,31,0.07);
+    }
 
-.image-section {
-    height: 70vh;
-    background-image: url('3F265C78-DC32-40AC-9872-5CF5A1540872.PNG');
-    background-size: cover;
-    background-position: center;
-}
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items:start;
+    }
+    .contact a{ color: var(--wine); text-decoration: none; }
+    .contact a:hover{ text-decoration: underline; }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    margin-bottom: 30px;
-}
+    footer{
+      padding: 56px 0 70px 0;
+      color: rgba(27,27,27,0.55);
+      font-size: 13px;
+      border-top: 1px solid var(--rule);
+    }
 
-footer {
-    padding: 60px;
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-}
-</style>
+    /* Mobile */
+    @media (max-width: 760px){
+      nav{ padding: 0 16px; }
+      .card{ grid-column: span 12; }
+      .contact{ grid-template-columns: 1fr; }
+      .field{ min-height: 420px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-<a href="#">About</a>
-<a href="#">Films</a>
-<a href="#">Contact</a>
-</nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#films">Films</a>
+      <a href="#current">Current</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<section class="hero">
-<h1>Delfine Paolini</h1>
-<p>Cinema exploring grief, moral consequence, and the architecture of transformation.</p>
-</section>
+  <header class="hero">
+    <div class="wrap">
+      <div class="role">Writer · Director · Producer</div>
+      <h1>Delfine Paolini</h1>
+      <p class="thesis">
+        Cinema exploring grief, moral consequence, and the architecture of transformation —
+        where <em>interior states</em> blur into the material world.
+      </p>
+    </div>
+  </header>
 
-<section class="image-section"></section>
+  <div class="field" aria-label="Painterly red field"></div>
 
-<section class="section">
-<h2>Current Work</h2>
-<p><strong>Le Rouge Originel</strong> — A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.</p>
-</section>
+  <section id="about" class="block">
+    <div class="wrap">
+      <div class="kicker">About</div>
+      <h2>Work shaped by restraint, proximity, and consequence.</h2>
+      <p>
+        I write and direct psychologically immersive narrative films that move between realism and interior space.
+        My work is drawn toward liminal states—grief, memory, transformation—and the quiet question of how a person becomes capable of sin.
+      </p>
+      <p>
+        Based in New York. Available for collaborations, select documentary work, and project inquiries.
+      </p>
+    </div>
+  </section>
 
-<footer>
-© 2026 Delfine Paolini
-</footer>
+  <section id="films" class="block">
+    <div class="wrap">
+      <div class="kicker">Films</div>
+      <h2>Selected work</h2>
 
-</body>
-</html>
+      <div class="grid">
+        <div class="card">
+          <h3>A Wonderful Way with Dragons</h3>
+          <div class="meta">Feature · Writer/Director/Producer</div>
+          <p>
+            Award-winning debut feature. A lyrical, psychologically intimate approach to story and image.
+          </p>
+          <a class="pill" href="#contact">Request link / press materials</a>
+        </div>
+
+        <div class="card">
+          <h3>Le Rouge Originel</h3>
+          <div class="meta">Feature · In development</div>
+          <p>
+            A woman embeds herself in the life of a criminal—and slowly becomes capable of sin.
+          </p>
+          <a class="pill" href="#current">View project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="current" class="block">
+    <div class="wrap">
+      <div class="kicker">Current</div>
+      <h2>Le Rouge Originel</h2>
+      <p>
+        A tightly controlled companion work to <em>Reds Hearten</em>, built around sustained observation and moral consequence.
+        Materials available upon request (deck, lookbook/visual language, script).
+      </p>
+      <div class="rule"></div>
+      <p style="color: rgba(27,27,27,0.70);">
+        Note: This site will evolve as production stills become available. For now, the project is represented through its painterly visual language.
+      </p>
+      <a class="pill" href="#contact">Request materials</a>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <div class="wrap">
+      <div class="kicker">Contact</div>
+      <h2>Inquiries</h2>
+
+      <div class="contact">
+        <div>
+          <p>
+            For producers, casting, financing, press, or festival-related inquiries, contact me here:
+          </p>
+          <p>
+            Email: <a href="mailto:delfinepaolini@gmail.com">delfinepaolini@gmail.com</a>
+          </p>
+          <p style="color: rgba(27,27,27,0.70);">
+            (If you want a contact form instead of email, tell me and I’ll add it.)
+          </p>
+        </div>
+
+        <div>
+          <p
