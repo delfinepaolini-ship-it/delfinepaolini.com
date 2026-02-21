@@ -1,265 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Le Rouge Originel — Delfine Paolini</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Rouge Originel — Delfine Paolini</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bone:#F4F1EA;
-  --charcoal:#1B1B1B;
-  --wine:#6B1F1F;
-  --rule: rgba(27,27,27,0.12);
-}
-.secondary-image {
-  margin: 60px 0;
-  text-align: center;
-}
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+    }
 
+    html{ scroll-behavior: smooth; }
 
-.secondary-image img {
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bone);
+      color:var(--charcoal);
+    }
 
-  /* Safe default: visible even if animation is blocked */
-  opacity: 1;
+    .wrap{
+      width:min(820px, 88vw);
+      margin:0 auto;
+    }
 
-  /* Fade effect */
-  animation: fadeIn 2.4s ease;
-}
+    /* NAV */
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(244,241,234,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
 
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
+    }
 
- .manifesto{
-  font-family:'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 44px);
-  text-align:center;
-  color:#5a1111;
-  letter-spacing:1px;
-  margin:70px 0;
-}
+    nav a:hover{
+      color: var(--wine);
+      opacity: 1;
+    }
 
-body{
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:var(--bone);
-  color:var(--charcoal);
-}
+    /* HERO (red-hand image) */
+    .hero{
+      height: 72vh;
+      min-height: 540px;
+      background-image: url("lro-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
 
-.wrap{
-  width:min(820px, 88vw);
-  margin:0 auto;
-}
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.18);
+    }
 
-nav{
-  position: fixed;
-  top: 26px;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  display:flex;
-  justify-content: flex-end;
-  padding: 0 56px;
-}
+    /* HEADER */
+    header{
+      padding: 60px 0 24px 0;
+    }
 
-nav .nav-inner{
-  display:flex;
-  gap: 22px;
-  font-size: 12px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  background: rgba(244,241,234,0.75);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(27,27,27,0.10);
-  border-radius: 999px;
-  padding: 10px 14px;
-}
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size: clamp(42px, 5vw, 60px);
+      margin: 0 0 14px 0;
+    }
 
-nav a{
-  text-decoration:none;
-  color: var(--charcoal);
-}
+    .meta{
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.6);
+      margin-bottom: 28px;
+    }
 
-nav a:hover{
-  color: var(--wine);
-}
+    .thesis{
+      font-size:18px;
+      line-height:1.7;
+      max-width:620px;
+      color:rgba(27,27,27,0.9);
+      margin: 0;
+    }
 
-/* HERO IMAGE */
-.hero{
-  height: 72vh;
-  min-height: 540px;
-  background-image: url('lro-hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-}
+    main p{
+      font-size:16px;
+      line-height:1.9;
+      margin: 0 0 20px 0;
+    }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,0.18);
-}
-}
+    .rule{
+      height:1px;
+      background:var(--rule);
+      margin:48px 0;
+    }
 
-/* HEADER */
-header{
-  padding: 60px 0 24px 0;
-}
+    .manifesto{
+      font-family:'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 44px);
+      text-align:center;
+      color:#5a1111;
+      letter-spacing:1px;
+      margin:70px 0 38px 0;
+    }
 
-h1{
-  font-family:'Playfair Display', serif;
-  font-weight:400;
-  font-size: clamp(42px, 5vw, 60px);
-  margin: 0 0 14px 0;
-}
+    /* Verdict line */
+    .sin-line{
+      font-family:'Playfair Display', serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.6rem);
+      line-height: 1.3;
+      margin: 28px 0 52px 0;
+      letter-spacing: 0.015em;
+      opacity: 0.96;
+    }
 
-.meta{
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(27,27,27,0.6);
-  margin-bottom: 28px;
-}
+    /* Poetic core (your 4-line statement) */
+    .core{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      max-width: 20ch;
+      margin: 0 auto 60px auto;
+      text-align: center;
+    }
 
-.thesis{
-  font-size:18px;
-  line-height:1.7;
-  max-width:620px;
-  color:rgba(27,27,27,0.9);
-}
+    /* Secondary images */
+    .secondary-image{
+      margin: 60px 0;
+      text-align: center;
+    }
 
-p{
-  font-size:16px;
-  line-height:1.9;
-  margin-bottom:20px;
-}
+    .secondary-image img{
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      opacity: 1;
+      animation: fadeIn 2.4s ease;
+    }
 
-.rule{
-  height:1px;
-  background:var(--rule);
-  margin:48px 0;
-}
+    /* Soften ONLY the river image */
+    .lro-river img{
+      opacity: 0.9;
+    }
 
-.core{
-  font-family:'Playfair Display', serif;
-  font-size:26px;
-  text-align:center;
-  margin:60px 0;
-}
+    @keyframes fadeIn{
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
 
-.status{
-  font-size:13px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:rgba(27,27,27,0.6);
-  margin-top:20px;
-}
+    @media (prefers-reduced-motion: reduce){
+      .secondary-image img{ animation: none; }
+    }
 
-footer{
-  margin-top:80px;
-  padding:50px 0 70px 0;
-  border-top:1px solid var(--rule);
-  font-size:13px;
-  color:rgba(27,27,27,0.55);
-}
+    .status{
+      font-size:13px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:rgba(27,27,27,0.6);
+      margin-top:20px;
+    }
 
-@media (max-width:760px){
-  nav{ padding:0 16px; }
-}
-</style>
+    footer{
+      margin-top:80px;
+      padding:50px 0 70px 0;
+      border-top:1px solid var(--rule);
+      font-size:13px;
+      color:rgba(27,27,27,0.55);
+    }
+
+    @media (max-width:760px){
+      nav{ padding:0 16px; }
+      .secondary-image img{ max-width: 92%; }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html#about">About</a>
-    <a href="films.html">Films</a>
-    <a href="index.html#current">Current</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-</nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
 
-<div class="hero"></div>
+  <div class="hero" aria-hidden="true"></div>
 
-<header>
-  <div class="wrap">
-    <h1>Le Rouge Originel</h1>
-    <div class="meta">Feature Film · In Pre-Production · Summer 2026</div>
+  <header>
+    <div class="wrap">
+      <h1>Le Rouge Originel</h1>
+      <div class="meta">Feature Film · In Pre-Production · Summer 2026</div>
+      <p class="thesis">
+        A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
+      </p>
+    </div>
+  </header>
 
-    <p class="thesis">
-      A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
+  <main class="wrap">
+
+    <div class="rule"></div>
+
+    <div class="manifesto">LOVE LED US TO ONE DEATH</div>
+
+    <p>
+      Le Rouge Originel examines proximity as an ethical condition.
+      Power is maintained not through spectacle, but through duration and permission.
     </p>
-  </div>
-</header>
 
-<main class="wrap">
+    <p class="sin-line">
+      Sin begins in what we allow to continue.
+    </p>
 
-  <div class="rule"></div>
- <div class="manifesto">
-  LOVE LED US TO ONE DEATH
-</div>
+    <div class="core">
+      Anne does not infiltrate — she remains.<br>
+      Observation becomes continuity.<br>
+      Violence is not rupture —<br>
+      it is what goes uninterrupted.
+    </div>
 
-<p>
-  Le Rouge Originel examines proximity as an ethical condition.
-  Power is maintained not through spectacle,
-  but through duration and permission.
-</p>
+    <div class="secondary-image lro-river">
+      <img src="lro-river.jpg" alt="Le Rouge Originel — river at dusk">
+    </div>
 
+    <div class="secondary-image">
+      <img src="ChatGPT%20Image%20Feb%2021,%202026%20at%2010_47_50%20AM.png"
+           alt="Le Rouge Originel — riverbank still">
+    </div>
 
-}
+    <div class="rule"></div>
 
-<div class="core">
-  Anne does not infiltrate — she remains.<br>
-  Observation becomes continuity.<br>
-  Violence is not rupture —<br>
-  it is what goes uninterrupted.
-</div>
+    <p>
+      Influenced by Chantal Akerman, Michael Haneke, and Krzysztof Kieślowski,
+      the film resists psychological explanation.
+      Stillness replaces escalation. Silence replaces cueing.
+      The camera does not align, console, or condemn.
+    </p>
 
+    <div class="status">
+      Casting Underway · Principal Photography Summer 2026
+    </div>
 
- 
-  <div class="secondary-image lro-river">
-  <img src="lro-river.jpg" alt="Le Rouge Originel — river at dusk">
-</div>
-</div>
-<div class="secondary-image">
-  <img src="ChatGPT%20Image%20Feb%2021,%202026%20at%2010_47_50%20AM.png"
-       alt="Le Rouge Originel — riverbank still">
-</div>
+  </main>
 
-  
-
-  <div class="rule"></div>
-
-  <p>
-    Influenced by Chantal Akerman, Michael Haneke, and Krzysztof Kieślowski,
-    the film resists psychological explanation.
-    Stillness replaces escalation. Silence replaces cueing.
-    The camera does not align, console, or condemn.
-  </p>
-
-  <div class="status">
-    Casting Underway · Principal Photography Summer 2026
-  </div>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    © 2026 Delfine Paolini / LRO Productions, LLC & Les Rouge Films
-  </div>
-</footer>
+  <footer>
+    <div class="wrap">
+      © 2026 Delfine Paolini / LRO Productions, LLC & Les Rouge Films
+    </div>
+  </footer>
 
 </body>
 </html>
