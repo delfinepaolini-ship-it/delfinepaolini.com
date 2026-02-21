@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Wonderful Way with Dragons — Delfine Paolini</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     }
     .wrap{ width:min(900px, 88vw); margin:0 auto; }
 
-    /* Nav */
+    /* Top nav */
     nav{
       position: fixed;
       top: 26px;
@@ -32,7 +32,7 @@
       right: 0;
       z-index: 50;
       display:flex;
-      justify-content:flex-end;
+      justify-content: flex-end;
       padding: 0 56px;
     }
     nav .nav-inner{
@@ -50,40 +50,31 @@
     nav a{
       text-decoration:none;
       color: var(--charcoal);
-      opacity:0.9;
+      opacity: 0.9;
     }
-    nav a:hover{ color: var(--wine); opacity:1; }
+    nav a:hover{ color: var(--wine); opacity: 1; }
 
-    /* Hero image */
+    /* HERO STILL (background image) */
     .hero{
       position: relative;
       height: 78vh;
       min-height: 520px;
-      background-image: url('dragons-hero.jpg'); /* HERO STILL */
+      border-bottom: 1px solid var(--rule);
+      overflow:hidden;
+      background-image: url('dragons-hero.jpg');
       background-size: cover;
       background-position: center;
-      border-bottom: 1px solid var(--rule);
+      filter: saturate(0.95) contrast(1.03);
     }
-
-    /* Subtle cinematic overlay (upgrade) */
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
-      pointer-events:none;
-    }
-
-    /* Existing vignette */
     .hero::before{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(80% 80% at 50% 50%, rgba(0,0,0,0.05), rgba(0,0,0,0.26));
+      background: radial-gradient(80% 80% at 50% 50%, rgba(0,0,0,0.06), rgba(0,0,0,0.28));
       pointer-events:none;
     }
 
     header{
-      padding: 54px 0 10px 0;
+      padding: 56px 0 8px 0;
     }
     h1{
       font-family:'Playfair Display', serif;
@@ -97,15 +88,15 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
       color: rgba(27,27,27,0.62);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
-
     p{
-      font-size: 16px;
-      line-height: 1.9;
       margin: 0 0 18px 0;
+      line-height: 1.9;
       color: rgba(27,27,27,0.92);
+      font-size: 16px;
     }
+    .rule{ height:1px; background: var(--rule); margin: 44px 0; }
 
     .pill{
       display:inline-block;
@@ -122,31 +113,31 @@
     }
     .pill:hover{ background: rgba(107,31,31,0.08); }
 
-    .rule{ height:1px; background: var(--rule); margin: 44px 0; }
-
-    /* Image blocks */
-    .img-block{ margin: 46px 0; }
-    .img-block img{
-      width: 100%;
-      display:block;
+    /* Stills layout */
+    .two-up{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 36px 0 10px 0;
+    }
+    .two-up img{
+      width:100%;
+      height: 240px;
+      object-fit: cover;
       border-radius: 18px;
       border: 1px solid rgba(27,27,27,0.10);
       filter: saturate(0.95) contrast(1.03);
     }
 
-    /* Two-up grid for optional still strip */
-    .two-up{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 34px 0;
+    .img-block{
+      margin: 36px 0;
     }
-    .two-up img{
+    .img-block img{
       width:100%;
-      height: 220px;
-      object-fit: cover;
+      display:block;
       border-radius: 18px;
       border: 1px solid rgba(27,27,27,0.10);
+      filter: saturate(0.95) contrast(1.03);
     }
 
     .section-title{
@@ -155,7 +146,6 @@
       font-size: 24px;
       margin: 0 0 14px 0;
     }
-
     ul.awards{
       margin: 0;
       padding-left: 18px;
@@ -169,14 +159,14 @@
       padding: 46px 0 60px 0;
       color: rgba(27,27,27,0.55);
       font-size: 13px;
-      margin-top: 54px;
+      margin-top: 60px;
     }
 
     @media (max-width: 760px){
       nav{ padding: 0 16px; }
       .hero{ height: 60vh; min-height: 420px; }
       .two-up{ grid-template-columns: 1fr; }
-      .two-up img{ height: 210px; }
+      .two-up img{ height: 220px; }
     }
   </style>
 </head>
@@ -209,44 +199,45 @@
   <main class="wrap">
     <div class="rule"></div>
 
-    <!-- SYNOPSIS (restrained, press-kit tone) -->
+    <!-- SYNOPSIS -->
     <p>
       After a pandemic sweeps the world, six children remain abandoned on an enigmatic island.
       Their attempt to build order quickly erodes into something more elemental—where survival becomes secondary to
       power, allegiance, and the fragile construction of identity.
     </p>
 
-    <!-- TWO-UP STRIP -->
+    <!-- STILLS (2-up) -->
     <div class="two-up" aria-label="Selected stills">
-      <img src="dragons-red.jpg" alt="Dragons — still (red dress)" />
-      <img src="dragons-house.jpg" alt="Dragons — still (house at sunrise)" />
+      <img src="dragons-red.jpg" alt="A Wonderful Way with Dragons — still (red dress)" />
+      <img src="dragons-house.jpg" alt="A Wonderful Way with Dragons — still (house at sunrise)" />
     </div>
 
-    <!-- FULL-WIDTH STILL -->
+    <!-- STILLS (full-width) -->
     <div class="img-block">
-      <img src="dragons-table.jpg" alt="Dragons — still (ensemble under trees)" />
+      <img src="dragons-table.jpg" alt="A Wonderful Way with Dragons — still (ensemble under trees)" />
     </div>
 
     <div class="rule"></div>
 
     <!-- AWARDS -->
-    <div>
+    <section aria-label="Awards and recognition">
       <h2 class="section-title">Awards & Recognition</h2>
       <p style="color: rgba(27,27,27,0.78);">
-        (Paste your awards list here when you have it — I’ll format it into a clean festival-style grid/list.)
+        Paste your awards list and festival selections when ready — I’ll format it into a clean press-kit layout
+        (wins / nominations / official selections, grouped by prestige and clarity).
       </p>
 
+      <!-- Placeholder -->
       <ul class="awards">
         <li>Winner — 55+ international awards</li>
         <li>30 nominations</li>
       </ul>
-    </div>
+    </section>
 
     <!-- POSTER (closing image) -->
     <div class="img-block" style="margin-top: 54px;">
       <img src="dragons-poster.jpg" alt="A Wonderful Way with Dragons — poster" />
     </div>
-
   </main>
 
   <footer>
