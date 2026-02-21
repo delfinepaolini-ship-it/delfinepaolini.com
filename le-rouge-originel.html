@@ -14,6 +14,14 @@
   --wine:#6B1F1F;
   --rule: rgba(27,27,27,0.12);
 }
+  .secondary-image{
+  margin:60px 0;
+}
+
+.secondary-image img{
+  width:100%;
+  display:block;
+}
  .manifesto{
   font-family:'Playfair Display', serif;
   font-size: clamp(32px, 4vw, 44px);
@@ -70,13 +78,22 @@ nav a:hover{
 
 /* HERO IMAGE */
 .hero{
-  height: 70vh;
-  min-height: 520px;
+  height: 72vh;
+  min-height: 540px;
   background-image: url('lro-hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.18);
+}
 }
 
 /* HEADER */
@@ -194,6 +211,9 @@ footer{
   <div class="core">
     How does a person become capable of sin?
   </div>
+  <div class="secondary-image">
+  <img src="lro-secondary.jpg" alt="Le Rouge Originel — riverbank still">
+</div>
 
   <div class="rule"></div>
 
