@@ -3,406 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le Rouge Originel —  LRO Production</title>
+  <title>Le Rouge Originel — Delfine Paolini</title>
 
-  <!-- If you already have a global stylesheet, keep this line and remove the <style> block below -->
-  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #070607;
-      --text: #f3f1f2;
-      --muted: #b9b3b6;
-      --line: rgba(255,255,255,.12);
-      --red: #8b101a;
-      --red2: #3b0a10;
-      --card: rgba(255,255,255,.04);
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --max: 980px;
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
     }
-    *{ box-sizing: border-box; }
-    html,body{ margin:0; padding:0; background: radial-gradient(1200px 800px at 20% 10%, var(--red2), transparent 55%),
-                                     radial-gradient(900px 700px at 80% 30%, rgba(139,16,26,.18), transparent 55%),
-                                     var(--bg);
-              color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 80px; }
 
-    /* Top nav (simple, optional) */
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 12px; padding: 10px 0 24px;
-    }
-    .brand{ letter-spacing:.16em; text-transform: uppercase; font-size: 12px; color: var(--muted); }
-    .nav a{
-      font-size: 13px; color: var(--muted); padding: 8px 10px; border: 1px solid transparent; border-radius: 999px;
-    }
-    .nav a:hover{ border-color: var(--line); color: var(--text); }
+    html{ scroll-behavior:smooth; }
 
-    /* Hero */
-    .hero{
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(139,16,26,.12), rgba(255,255,255,.02));
-      border-radius: 22px;
-      padding: 32px 22px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bone);
+      color:var(--charcoal);
     }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-60px -60px auto auto;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle at center, rgba(139,16,26,.35), transparent 70%);
-      filter: blur(2px);
-      transform: rotate(10deg);
-      pointer-events:none;
+
+    .wrap{ width:min(820px, 88vw); margin:0 auto; }
+
+    /* Navigation */
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
     }
-    .kicker{
-      color: var(--muted);
+
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: 12px;
-      margin: 0 0 10px;
-    }
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(34px, 4vw, 54px);
-      letter-spacing: .02em;
-      line-height: 1.05;
-    }
-    .tagline{
-      margin: 0 0 18px;
-      color: var(--text);
-      font-size: 18px;
-      line-height: 1.5;
-      max-width: 56ch;
-      opacity: .95;
-    }
-    .hero-meta{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 16px;
-    }
-    .pill{
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,.22);
-      color: var(--muted);
-      font-size: 12px;
-      padding: 8px 12px;
+      background: rgba(244,241,234,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
       border-radius: 999px;
-      letter-spacing: .04em;
-    }
-    .actions{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 18px; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
       padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-    }
-    .btn:hover{ border-color: rgba(255,255,255,.24); }
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(139,16,26,.88), rgba(139,16,26,.45));
-      border-color: rgba(139,16,26,.9);
     }
 
-    /* Sections */
-    .section{ margin-top: 28px; }
-    .section-header{
-      display:flex; align-items:baseline; justify-content:space-between; gap: 12px;
-      margin: 0 0 10px;
-    }
-    .section h2{
-      margin: 0;
-      font-size: 15px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .section .rule{ height:1px; background: var(--line); flex:1; }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-    }
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
     }
 
-    .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    .card h3{
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing:.12em;
-      text-transform: uppercase;
-      color: var(--text);
-      opacity: .9;
-    }
-    .body{
-      color: var(--text);
-      line-height: 1.75;
-      font-size: 15px;
-    }
-    .muted{ color: var(--muted); }
+    nav a:hover{ color: var(--wine); }
 
-    .quote{
-      border-left: 2px solid rgba(139,16,26,.9);
-      padding-left: 14px;
-      color: var(--text);
-      opacity: .95;
+    /* Red Field Hero */
+    .field{
+      height: 65vh;
+      min-height: 520px;
+      background: linear-gradient(180deg, #7a1f1f 0%, #4e1313 100%);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    header{
+      padding: 64px 0 24px 0;
+    }
+
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(42px, 5vw, 60px);
+      margin: 0 0 14px 0;
+    }
+
+    .thesis{
+      font-size: 18px;
       line-height: 1.7;
+      max-width: 620px;
+      color: rgba(27,27,27,0.85);
+      margin-bottom: 30px;
     }
 
-    .list{
-      margin: 0; padding-left: 18px;
-      color: var(--text);
-      line-height: 1.75;
-    }
-
-    /* Footer */
-    footer{
-      margin-top: 44px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    .meta{
       font-size: 12px;
-      display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.6);
+      margin-bottom: 28px;
     }
+
+    p{
+      line-height: 1.9;
+      font-size: 16px;
+      color: rgba(27,27,27,0.92);
+      margin-bottom: 20px;
+    }
+
+    .rule{
+      height:1px;
+      background: var(--rule);
+      margin: 48px 0;
+    }
+
+    .core-question{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size: 26px;
+      text-align:center;
+      margin: 60px 0;
+    }
+
+    .status{
+      font-size:14px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color: rgba(27,27,27,0.6);
+    }
+
+    footer{
+      margin-top:80px;
+      padding: 50px 0 70px 0;
+      border-top:1px solid var(--rule);
+      font-size:13px;
+      color: rgba(27,27,27,0.55);
+    }
+
+    @media (max-width:760px){
+      nav{ padding: 0 16px; }
+      .field{ min-height:420px; }
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand">LRO Production</div>
-      <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#films">Films</a>
-        <a href="index.html#contact">Contact</a>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="field"></div>
+
+  <header>
+    <div class="wrap">
+      <h1>Le Rouge Originel</h1>
+
+      <div class="meta">
+        Feature Film · In Pre-Production · Summer 2026
       </div>
+
+      <p class="thesis">
+        A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <div class="rule"></div>
+
+    <p>
+      Le Rouge Originel examines proximity as an ethical condition. 
+      It asks what occurs when observation ceases to be neutral, and when witnessing becomes participation.
+    </p>
+
+    <p>
+      The film unfolds in stillness. Anne does not enter Boris’s world through force or seduction, but through endurance. 
+      What begins as a quiet alignment becomes a moral erosion — gradual, nearly invisible — until refusal is no longer possible.
+    </p>
+
+    <div class="core-question">
+      How does a person become capable of sin?
     </div>
 
-    <header class="hero" id="top">
-      <p class="kicker">Feature Film · In Pre-Production</p>
-      <h1>Le Rouge Originel</h1>
-      <p class="tagline">A study of how a person becomes capable of sin.</p>
+    <div class="rule"></div>
 
-      <div class="hero-meta">
-        <span class="pill">Psychological</span>
-        <span class="pill">Minimalist</span>
-        <span class="pill">Moral transformation</span>
-        <span class="pill">Restraint as tension</span>
-      </div>
+    <p>
+      Visually, the film draws from the austerity of Chantal Akerman, 
+      the moral architecture of Michael Haneke, 
+      and the metaphysical restraint of Krzysztof Kieślowski.
+    </p>
 
-      <div class="actions">
-        <a class="btn primary" href="#logline">Logline</a>
-        <a class="btn" href="#synopsis">Synopsis</a>
-        <a class="btn" href="#visual-language">Visual Language</a>
-        <a class="btn" href="#materials">Materials</a>
-      </div>
-    </header>
+    <p>
+      Dialogue is minimal. Duration is deliberate. 
+      The frame observes without guiding judgment.
+    </p>
 
-    <!-- LOGLINE + SYNOPSIS -->
-    <section class="section" id="logline">
-      <div class="section-header">
-        <h2>Story</h2><div class="rule"></div>
-      </div>
+    <div class="rule"></div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Logline</h3>
-          <p class="body">
-            A woman follows a criminal and quietly embeds herself into his life, only to discover that proximity to
-            violence is not passive—until she, too, becomes capable of it.
-          </p>
-        </div>
+    <div class="status">
+      Casting Underway · Principal Photography Summer 2026
+    </div>
 
-        <div class="card">
-          <h3>Core Question</h3>
-          <p class="body quote">
-            How does a person become capable of sin?
-          </p>
-          <p class="body muted" style="margin-top:10px;">
-            Not through spectacle—through closeness, silence, and permission.
-          </p>
-        </div>
-      </div>
-    </section>
+  </main>
 
-    <section class="section" id="synopsis">
-      <div class="section-header">
-        <h2>Synopsis</h2><div class="rule"></div>
-      </div>
+  <footer>
+    <div class="wrap">
+      © 2026 Delfine Paolini / SZN Film
+    </div>
+  </footer>
 
-      <div class="card">
-        <p class="body">
-          Anne does not belong to Boris’s world.
-        </p>
-        <p class="body">
-          He is controlled, opaque, and distant from consequence. She begins by observing him. Then she follows.
-          Eventually, she enters.
-        </p>
-        <p class="body">
-          What begins as fascination becomes proximity. Proximity becomes complicity. Anne integrates herself into
-          Boris’s life without force—through patience, silence, and a willingness to remain unseen. She does not
-          interrupt his world; she adapts to it.
-        </p>
-        <p class="body">
-          Over time, the moral distance between them dissolves. The boundary between observer and participant erodes.
-          The question is no longer who Boris is—but who Anne is becoming.
-        </p>
-        <p class="body">
-          <em>Le Rouge Originel</em> is not a story about crime. It is a study of moral transformation—of how exposure,
-          intimacy, and silence can reshape a person’s capacity for violence.
-        </p>
-      </div>
-    </section>
-
-    <!-- DIRECTOR STATEMENT -->
-    <section class="section" id="tone">
-      <div class="section-header">
-        <h2>Tone</h2><div class="rule"></div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Director’s Statement</h3>
-          <p class="body">
-            <em>Le Rouge Originel</em> asks a question that resists easy moral framing: <strong>How does a person become capable of sin?</strong>
-            Anne does not begin as someone violent. She begins as someone attentive.
-          </p>
-          <p class="body">
-            The film follows her through proximity—through the slow erosion of distance between herself and Boris.
-            I am interested in the space where judgment dissolves, where witnessing becomes participation,
-            where silence becomes a form of consent.
-          </p>
-          <p class="body">
-            This film is constructed through restraint. Dialogue is minimal. Emotion is withheld.
-            Meaning accumulates through gesture, duration, and image.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Rhythm</h3>
-          <ul class="list">
-            <li>Quiet, observational</li>
-            <li>Time unfolds without compression</li>
-            <li>Emotional access is earned, never given</li>
-            <li>Silence carries narrative weight</li>
-          </ul>
-          <p class="body muted" style="margin-top:10px;">
-            Meaning emerges after the moment.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISUAL LANGUAGE -->
-    <section class="section" id="visual-language">
-      <div class="section-header">
-        <h2>Visual Language</h2><div class="rule"></div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Image System</h3>
-          <ul class="list">
-            <li>Painterly composition, controlled stillness</li>
-            <li>Negative space as psychological field</li>
-            <li>Bodies framed at a distance before intimacy is earned</li>
-            <li>Minimal movement; when it occurs, it is deliberate</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Palette & Light</h3>
-          <ul class="list">
-            <li>Deep reds: moral interiority</li>
-            <li>Muted neutrals: detachment</li>
-            <li>Occasional cold blues: distance / former self</li>
-            <li>Directional light; shadow is held, not eliminated</li>
-            <li>Grain present; image feels tactile</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <h3>Notes</h3>
-        <p class="body muted">
-          
-        </p>
-      </div>
-    </section>
-
-    <!-- THEMES -->
-    <section class="section" id="themes">
-      <div class="section-header">
-        <h2>Themes</h2><div class="rule"></div>
-      </div>
-
-      <div class="card">
-        <ul class="list">
-          <li>Moral proximity</li>
-          <li>Witness vs. participation</li>
-          <li>The erosion of innocence</li>
-          <li>Silence as complicity</li>
-          <li>Identity through exposure</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- MATERIALS -->
-    <section class="section" id="materials">
-      <div class="section-header">
-        <h2>Materials</h2><div class="rule"></div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Status</h3>
-          <p class="body"><strong>In Pre-Production</strong></p>
-          <p class="body muted">Feature film</p>
-
-          <div style="height:12px"></div>
-
-          <h3>Attachments (Optional)</h3>
-          <p class="body muted">
-            Available upon request: Pitch deck / Lookbook / Script 
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Team</h3>
-          <p class="body">
-            Writer/Director: Delfine Paolini<br/>
-            Producers: Liz Hall & Taylor Geare<br/>
-            Production Company: LRO Production, LLC
-          
-          </p>
-          <p class="body muted" style="margin-top:10px;">
-            
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> LRO Production </div>
-      <div><a href="#top">Back to top ↑</a></div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
