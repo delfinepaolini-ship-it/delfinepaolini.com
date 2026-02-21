@@ -1,28 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reds Hearten — Delfine Paolini</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+    }
+
+    html{ scroll-behavior: smooth; }
+
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:#0f1112;
+      color: rgba(244,241,234,0.92);
+    }
+
+    /* Page */
+    .film-page.reds-hearten{
+      min-height: 100vh;
+      padding: 110px 0 90px 0;
+    }
+
+    .film-header{
+      width: min(980px, 90%);
+      margin: 0 auto;
+    }
+
+    .film-title{
+      margin: 0 0 18px 0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    .core{
+      font-family:'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+      max-width: 24ch;
+      margin: 0;
+    }
+
+    .hero-image{
+      width: min(1100px, 92%);
+      margin: 60px auto 0 auto;
+      text-align: center;
+    }
+
+    .hero-image img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+      opacity: 1;
+      animation: fadeIn 2.4s ease;
+    }
+
+    .mythic-manifesto{
+      width: min(760px, 90%);
+      margin: 50px auto 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      opacity: 0.92;
+    }
+
+    .poem{
+      font-style: italic;
+      opacity: 0.9;
+      margin: 0 0 22px 0;
+    }
+
+    .mythic-manifesto p{
+      margin: 0 0 18px 0;
+    }
+
+    em{
+      font-style: italic;
+      color: rgba(244,241,234,0.96);
+    }
+
+    @keyframes fadeIn{
+      from{ opacity: 0; }
+      to{ opacity: 1; }
+    }
+
+    @media (max-width: 760px){
+      .film-page.reds-hearten{ padding: 90px 0 70px 0; }
+      .hero-image{ margin-top: 40px; }
+    }
+  </style>
+</head>
+
 <body>
+  <section class="film-page reds-hearten">
 
-<section class="film-page reds-hearten">
+    <header class="film-header">
+      <h1 class="film-title">REDS HEARTEN</h1>
+      <div class="core">The underworld does not forget.</div>
+    </header>
 
-  <header class="film-header">
-    <h1 class="film-title">REDS HEARTEN</h1>
-    <div class="core">
-      The underworld does not forget.
+    <div class="hero-image">
+      <img src="rh-hero.png" alt="Reds Hearten — underworld passage">
     </div>
-  </header>
 
-  <img src="rh-hero.png">
-  <div class="hero-image">
-    <img src="rh-hero.png" alt="Reds Hearten — underworld passage">
-  </div>
+    <div class="mythic-manifesto">
+      <p class="poem">
+        These are not words I know<br>
+        they are only way of know<br>
+        what words<br>
+        for the sense of you asleep.
+      </p>
 
-  <div class="mythic-manifesto">
-    <p class="poem">
-      These are not words I know<br>
-      they are only way of know<br>
-      what words<br>
-      for the sense of you asleep.
-    </p>
-  </div>
+      <p>
+        Conceived as a companion to <em>Le Rouge Originel</em>, <em>Reds Hearten</em> widens the descent —
+        into rupture, ritual, and the architecture of the underworld.
+      </p>
 
-</section>
+      <p>
+        If <em>Le Rouge Originel</em> asks how a person becomes capable of sin,
+        <em>Reds Hearten</em> asks what survives after crossing through.
+      </p>
+    </div>
 
+  </section>
 </body>
+</html>
