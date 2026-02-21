@@ -22,6 +22,27 @@
       color:var(--charcoal);
     }
     .wrap{ width:min(980px, 88vw); margin:0 auto; }
+     .card-actions{
+    margin-top: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .enter{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 3px;
+  }
+
+  .enter:hover{
+    opacity: 0.6;
+  }
+
+</style>
 
     nav{
       position: fixed;
@@ -170,12 +191,20 @@
         <a class="link" href="le-rouge-originel.html">View project</a>
       </div>
 
-      <div class="card">
-        <h2>Reds Hearten</h2>
-        <div class="meta">Feature · In development</div>
-        <p>Companion film to <em>Le Rouge Originel</em>, following a woman's descent into purgatory.</p>
-        <a class="link" href="index.html#contact">Request materials</a>
-      </div>
+    <div class="card">
+  <h2>Reds Hearten</h2>
+  <div class="meta">Feature · In development</div>
+
+  <p>
+    Companion film to <em>Le Rouge Originel</em>, widening the descent —
+    into rupture, ritual, and the architecture of the underworld.
+  </p>
+
+  <div class="card-actions">
+    <a class="enter" href="reds-hearten.html">Enter Film</a>
+    <a class="link" href="index.html#contact">Request materials</a>
+  </div>
+</div>
 
       <div class="card">
         <h2>Sky, Zyprexa, Night</h2>
