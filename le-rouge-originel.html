@@ -1,235 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le Rouge Originel — Delfine Paolini</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Le Rouge Originel — Delfine Paolini</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bone:#F4F1EA;
-      --charcoal:#1B1B1B;
-      --wine:#6B1F1F;
-      --rule: rgba(27,27,27,0.12);
-    }
+<style>
+:root{
+  --bone:#F4F1EA;
+  --charcoal:#1B1B1B;
+  --wine:#6B1F1F;
+  --rule: rgba(27,27,27,0.12);
+}
+  .manifesto{
+  font-family:'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 44px);
+  text-align:center;
+  color: var(--wine);
+  letter-spacing:2px;
+  margin:70px 0;
+}
 
-    html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:var(--bone);
+  color:var(--charcoal);
+}
 
-    body{
-      margin:0;
-      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background:var(--bone);
-      color:var(--charcoal);
-    }
+.wrap{
+  width:min(820px, 88vw);
+  margin:0 auto;
+}
 
-    .wrap{ width:min(820px, 88vw); margin:0 auto; }
+nav{
+  position: fixed;
+  top: 26px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display:flex;
+  justify-content: flex-end;
+  padding: 0 56px;
+}
 
-    /* Navigation */
-    nav{
-      position: fixed;
-      top: 26px;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      display:flex;
-      justify-content: flex-end;
-      padding: 0 56px;
-    }
+nav .nav-inner{
+  display:flex;
+  gap: 22px;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  background: rgba(244,241,234,0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(27,27,27,0.10);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
 
-    nav .nav-inner{
-      display:flex;
-      gap: 22px;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      background: rgba(244,241,234,0.75);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(27,27,27,0.10);
-      border-radius: 999px;
-      padding: 10px 14px;
-    }
+nav a{
+  text-decoration:none;
+  color: var(--charcoal);
+}
 
-    nav a{
-      text-decoration:none;
-      color: var(--charcoal);
-      opacity: 0.9;
-    }
+nav a:hover{
+  color: var(--wine);
+}
 
-    nav a:hover{ color: var(--wine); }
+/* HERO IMAGE */
+.hero{
+  height: 70vh;
+  min-height: 520px;
+  background-image: url('lro-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--rule);
+}
 
-    /* Red Field Hero */
-    .field{
-      height: 65vh;
-      min-height: 520px;
-      background: linear-gradient(180deg, #7a1f1f 0%, #4e1313 100%);
-      border-bottom: 1px solid var(--rule);
-    }
+/* HEADER */
+header{
+  padding: 60px 0 24px 0;
+}
 
-    header{
-      padding: 64px 0 24px 0;
-    }
+h1{
+  font-family:'Playfair Display', serif;
+  font-weight:400;
+  font-size: clamp(42px, 5vw, 60px);
+  margin: 0 0 14px 0;
+}
 
-    h1{
-      font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(42px, 5vw, 60px);
-      margin: 0 0 14px 0;
-    }
+.meta{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(27,27,27,0.6);
+  margin-bottom: 28px;
+}
 
-    .thesis{
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 620px;
-      color: rgba(27,27,27,0.85);
-      margin-bottom: 30px;
-    }
+.thesis{
+  font-size:18px;
+  line-height:1.7;
+  max-width:620px;
+  color:rgba(27,27,27,0.9);
+}
 
-    .meta{
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(27,27,27,0.6);
-      margin-bottom: 28px;
-    }
+p{
+  font-size:16px;
+  line-height:1.9;
+  margin-bottom:20px;
+}
 
-    p{
-      line-height: 1.9;
-      font-size: 16px;
-      color: rgba(27,27,27,0.92);
-      margin-bottom: 20px;
-    }
+.rule{
+  height:1px;
+  background:var(--rule);
+  margin:48px 0;
+}
 
-    .rule{
-      height:1px;
-      background: var(--rule);
-      margin: 48px 0;
-    }
+.core{
+  font-family:'Playfair Display', serif;
+  font-size:26px;
+  text-align:center;
+  margin:60px 0;
+}
 
-    .core-question{
-      font-family:'Playfair Display', serif;
-      font-weight:400;
-      font-size: 26px;
-      text-align:center;
-      margin: 60px 0;
-    }
+.status{
+  font-size:13px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:rgba(27,27,27,0.6);
+  margin-top:20px;
+}
 
-    .status{
-      font-size:14px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color: rgba(27,27,27,0.6);
-    }
+footer{
+  margin-top:80px;
+  padding:50px 0 70px 0;
+  border-top:1px solid var(--rule);
+  font-size:13px;
+  color:rgba(27,27,27,0.55);
+}
 
-    footer{
-      margin-top:80px;
-      padding: 50px 0 70px 0;
-      border-top:1px solid var(--rule);
-      font-size:13px;
-      color: rgba(27,27,27,0.55);
-    }
-
-    @media (max-width:760px){
-      nav{ padding: 0 16px; }
-      .field{ min-height:420px; }
-    }
-
-  </style>
+@media (max-width:760px){
+  nav{ padding:0 16px; }
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html#about">About</a>
-      <a href="films.html">Films</a>
-      <a href="index.html#current">Current</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#about">About</a>
+    <a href="films.html">Films</a>
+    <a href="index.html#current">Current</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
 
-  <div class="field"></div>
+<div class="hero"></div>
 
-  <header>
-    <div class="wrap">
-      <h1>Le Rouge Originel</h1>
+<header>
+  <div class="wrap">
+    <h1>Le Rouge Originel</h1>
+    <div class="meta">Feature Film · In Pre-Production · Summer 2026</div>
 
-      <div class="meta">
-        Feature Film · In Pre-Production · Summer 2026
-      </div>
-
-      <p class="thesis">
-        A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
-      </p>
-    </div>
-  </header>
-
-  <main class="wrap">
-
-    <div class="rule"></div>
-
-    <p>
-      Le Rouge Originel examines proximity as an ethical condition. 
-      It asks what occurs when observation ceases to be neutral, and when witnessing becomes participation.
+    <p class="thesis">
+      A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
     </p>
+  </div>
+</header>
 
-    <p>
-      The film unfolds in stillness. Anne does not enter Boris’s world through force or seduction, but through endurance. 
-      What begins as a quiet alignment becomes a moral erosion — gradual, nearly invisible — until refusal is no longer possible.
-    </p>
+<main class="wrap">
 
-    <div class="core-question">
-      How does a person become capable of sin?
-    </div>
-    <div class="rule"></div>
-
-<p>
-  I am interested in moral transformation not as spectacle, but as duration.
-  Sin, in this film, is not a rupture — it is an accretion.
-</p>
-
-<p>
-  Anne does not fall. She remains.
-  And in remaining, she shifts.
-</p>
-
-<p>
-  The camera does not condemn her.
-  It waits.
-</p>
-
-    <div class="rule"></div>
-
-    <p>
-      Visually, the film draws from the austerity of Chantal Akerman, 
-      the moral architecture of Michael Haneke, 
-      and the metaphysical restraint of Krzysztof Kieślowski.
-    </p>
-    <p>
-  The film is conceived as the first movement of a diptych,
-  in conversation with its companion feature <em>Reds Hearten</em>.
-</p>
-
-    <p>
-      Dialogue is minimal. Duration is deliberate. 
-      The frame observes without guiding judgment.
-    </p>
-
-    <div class="rule"></div>
-
-   <div class="status">
-  In Pre-Production · Casting Underway · Principal Photography Summer 2026
+  <div class="rule"></div>
+ <div class="manifesto">
+  LOVE LED US TO ONE DEATH
 </div>
-    </div>
 
-  </main>
+  <p>
+    Le Rouge Originel examines proximity as an ethical condition.
+    It observes how power is sustained not through spectacle,
+    but through duration, permission, and spatial alignment.
+  </p>
 
-  <footer>
-    <div class="wrap">
-      © 2026 Delfine Paolini / LRO Production & Les Rouge Films
-    </div>
-  </footer>
+  <p>
+    Anne does not infiltrate — she remains.
+    What begins as observation becomes continuity.
+    Violence emerges not as rupture,
+    but as the administrative result of nothing being interrupted.
+  </p>
+
+  <div class="core">
+    How does a person become capable of sin?
+  </div>
+
+  <div class="rule"></div>
+
+  <p>
+    Influenced by Chantal Akerman, Michael Haneke, and Krzysztof Kieślowski,
+    the film resists psychological explanation.
+    Stillness replaces escalation. Silence replaces cueing.
+    The camera does not align, console, or condemn.
+  </p>
+
+  <div class="status">
+    Casting Underway · Principal Photography Summer 2026
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Delfine Paolini / SZN Film
+  </div>
+</footer>
 
 </body>
 </html>
