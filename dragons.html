@@ -59,11 +59,22 @@
       position: relative;
       height: 78vh;
       min-height: 520px;
-      background-image: url('images/dragons/dragons-hero.jpg'); /* <- HERO STILL */
+      background-image: url('dragons-hero.jpg'); /* HERO STILL */
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid var(--rule);
     }
+
+    /* Subtle cinematic overlay (upgrade) */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+      pointer-events:none;
+    }
+
+    /* Existing vignette */
     .hero::before{
       content:"";
       position:absolute; inset:0;
@@ -71,7 +82,9 @@
       pointer-events:none;
     }
 
-    header{ padding: 54px 0 10px 0; }
+    header{
+      padding: 54px 0 10px 0;
+    }
     h1{
       font-family:'Playfair Display', serif;
       font-weight: 400;
@@ -178,8 +191,10 @@
     </div>
   </nav>
 
+  <!-- HERO STILL -->
   <div class="hero" aria-label="A Wonderful Way with Dragons — Hero Still"></div>
 
+  <!-- TITLE / LINKS -->
   <header>
     <div class="wrap">
       <h1>A Wonderful Way with Dragons</h1>
@@ -194,23 +209,27 @@
   <main class="wrap">
     <div class="rule"></div>
 
+    <!-- SYNOPSIS (restrained, press-kit tone) -->
     <p>
       After a pandemic sweeps the world, six children remain abandoned on an enigmatic island.
       Their attempt to build order quickly erodes into something more elemental—where survival becomes secondary to
       power, allegiance, and the fragile construction of identity.
     </p>
 
+    <!-- TWO-UP STRIP -->
     <div class="two-up" aria-label="Selected stills">
-      <img src="images/dragons/dragons-red.jpg" alt="Dragons — still (red dress)" />
-      <img src="images/dragons/dragons-house.jpg" alt="Dragons — still (house at sunrise)" />
+      <img src="dragons-red.jpg" alt="Dragons — still (red dress)" />
+      <img src="dragons-house.jpg" alt="Dragons — still (house at sunrise)" />
     </div>
 
+    <!-- FULL-WIDTH STILL -->
     <div class="img-block">
-      <img src="images/dragons/dragons-table.jpg" alt="Dragons — still (ensemble under trees)" />
+      <img src="dragons-table.jpg" alt="Dragons — still (ensemble under trees)" />
     </div>
 
     <div class="rule"></div>
 
+    <!-- AWARDS -->
     <div>
       <h2 class="section-title">Awards & Recognition</h2>
       <p style="color: rgba(27,27,27,0.78);">
@@ -223,9 +242,11 @@
       </ul>
     </div>
 
+    <!-- POSTER (closing image) -->
     <div class="img-block" style="margin-top: 54px;">
-      <img src="images/dragons/dragons-poster.jpg" alt="A Wonderful Way with Dragons — poster" />
+      <img src="dragons-poster.jpg" alt="A Wonderful Way with Dragons — poster" />
     </div>
+
   </main>
 
   <footer>
