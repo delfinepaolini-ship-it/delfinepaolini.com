@@ -16,7 +16,7 @@
     }
 
     html{ scroll-behavior:smooth; }
-    body{ 
+    body{
       margin:0;
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--bone);
@@ -24,7 +24,7 @@
     }
     .wrap{ width:min(900px, 88vw); margin:0 auto; }
 
-    /* Top nav */
+    /* Nav */
     nav{
       position: fixed;
       top: 26px;
@@ -54,14 +54,14 @@
     }
     nav a:hover{ color: var(--wine); opacity: 1; }
 
-    /* HERO STILL (background image) */
+    /* HERO */
     .hero{
       position: relative;
       height: 78vh;
       min-height: 520px;
       border-bottom: 1px solid var(--rule);
       overflow:hidden;
-      background-image: url('dragons-hero.jpg');
+      background-image: url('https://delfinepaolini.com/dragons-hero.jpg');
       background-size: cover;
       background-position: center;
       filter: saturate(0.95) contrast(1.03);
@@ -113,7 +113,7 @@
     }
     .pill:hover{ background: rgba(107,31,31,0.08); }
 
-    /* Stills layout */
+    /* Stills */
     .two-up{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -127,11 +127,10 @@
       border-radius: 18px;
       border: 1px solid rgba(27,27,27,0.10);
       filter: saturate(0.95) contrast(1.03);
+      display:block;
     }
 
-    .img-block{
-      margin: 36px 0;
-    }
+    .img-block{ margin: 36px 0; }
     .img-block img{
       width:100%;
       display:block;
@@ -181,10 +180,8 @@
     </div>
   </nav>
 
-  <!-- HERO STILL -->
   <div class="hero" aria-label="A Wonderful Way with Dragons — Hero Still"></div>
 
-  <!-- TITLE / LINKS -->
   <header>
     <div class="wrap">
       <h1>A Wonderful Way with Dragons</h1>
@@ -199,28 +196,23 @@
   <main class="wrap">
     <div class="rule"></div>
 
-    <!-- SYNOPSIS -->
     <p>
       After a pandemic sweeps the world, six children remain abandoned on an enigmatic island.
       Their attempt to build order quickly erodes into something more elemental—where survival becomes secondary to
       power, allegiance, and the fragile construction of identity.
     </p>
 
-    <!-- STILLS (2-up) -->
     <div class="two-up" aria-label="Selected stills">
-      <img src="dragons-red.jpg" alt="A Wonderful Way with Dragons — still (red dress)" />
-      <img src="dragons-house.jpg" alt="A Wonderful Way with Dragons — still (house at sunrise)" />
+      <img src="https://delfinepaolini.com/dragons-red.jpg" alt="A Wonderful Way with Dragons — still (red dress)" />
+      <img src="https://delfinepaolini.com/dragons-house.jpg" alt="A Wonderful Way with Dragons — still (house at sunrise)" />
     </div>
 
-    <!-- STILLS (full-width) -->
     <div class="img-block">
-      <img src="dragons-table.jpg" alt="A Wonderful Way with Dragons — still (ensemble under trees)" />
-      <img src="IMG_8865%202.JPG" alt="A Wonderful Way with Dragons — poster" />
+      <img src="https://delfinepaolini.com/dragons-table.jpg" alt="A Wonderful Way with Dragons — still (ensemble under trees)" />
     </div>
 
     <div class="rule"></div>
 
-    <!-- AWARDS -->
     <section aria-label="Awards and recognition">
       <h2 class="section-title">Awards & Recognition</h2>
       <p style="color: rgba(27,27,27,0.78);">
@@ -228,16 +220,14 @@
         (wins / nominations / official selections, grouped by prestige and clarity).
       </p>
 
-      <!-- Placeholder -->
       <ul class="awards">
         <li>Winner — 55+ international awards</li>
         <li>30 nominations</li>
       </ul>
     </section>
 
-    <!-- POSTER (closing image) -->
     <div class="img-block" style="margin-top: 54px;">
-      <img src="dragons-poster.jpg" alt="A Wonderful Way with Dragons — poster" />
+      <img src="https://delfinepaolini.com/IMG_8865%202.JPG" alt="A Wonderful Way with Dragons — poster" />
     </div>
   </main>
 
