@@ -133,17 +133,7 @@
       margin:70px 0 38px 0;
     }
 
-    /* Verdict line */
-    .sin-line{
-      font-family:'Playfair Display', serif;
-      font-size: clamp(1.35rem, 2.4vw, 1.6rem);
-      line-height: 1.3;
-      margin: 28px 0 52px 0;
-      letter-spacing: 0.015em;
-      opacity: 0.96;
-    }
-
-    /* Poetic core (your 4-line statement) */
+    /* Poetic core */
     .core{
       font-family:'Playfair Display', serif;
       font-weight: 400;
@@ -155,7 +145,7 @@
       text-align: center;
     }
 
-    /* Secondary images */
+    /* Secondary images (default constrained) */
     .secondary-image{
       margin: 60px 0;
       text-align: center;
@@ -170,8 +160,15 @@
       animation: fadeIn 2.4s ease;
     }
 
-    /* Soften ONLY the river image */
-    .lro-river img{
+    /* River: wide + softer */
+    .secondary-image.lro-river{
+      width: min(1200px, 94vw);
+      margin: 70px auto 70px auto; /* center the container */
+    }
+
+    .secondary-image.lro-river img{
+      max-width: 100%;
+      width: 100%;
       opacity: 0.9;
     }
 
@@ -203,6 +200,7 @@
     @media (max-width:760px){
       nav{ padding:0 16px; }
       .secondary-image img{ max-width: 92%; }
+      .secondary-image.lro-river{ width: 94vw; }
     }
   </style>
 </head>
@@ -236,22 +234,22 @@
 
     <div class="manifesto">LOVE LED US TO ONE DEATH</div>
 
-    <p>
-      Le Rouge Originel examines proximity as an ethical condition.
-      Power is maintained not through spectacle, but through duration and permission.
-      Sin begins in what we allow to continue.
-    </p>
-
     <div class="core">
+      Le Rouge Originel examines proximity as an ethical condition.<br>
       Anne does not infiltrate — she remains.<br>
       Observation becomes continuity.<br>
       Violence is not rupture —<br>
       it is what goes uninterrupted.
     </div>
 
-    <div class="secondary-image lro-river">
-      <img src="lro-river.jpg" alt="Le Rouge Originel — river at dusk">
-    </div>
+  </main>
+
+  <!-- Wide river lives OUTSIDE wrap so it can be bigger -->
+  <div class="secondary-image lro-river">
+    <img src="lro-river.jpg" alt="Le Rouge Originel — river at dusk">
+  </div>
+
+  <main class="wrap">
 
     <div class="secondary-image">
       <img src="ChatGPT%20Image%20Feb%2021,%202026%20at%2010_47_50%20AM.png"
