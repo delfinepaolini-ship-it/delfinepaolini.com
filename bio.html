@@ -26,6 +26,21 @@
     opacity: 0;
     animation: pageIn 520ms ease forwards;
   }
+  /* Subtle film grain overlay */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.045; /* adjust between 0.03 – 0.06 if desired */
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.35) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.25) 1px, transparent 1px);
+  background-size: 3px 3px, 4px 4px;
+  background-position: 0 0, 1px 1px;
+}
 
   @keyframes pageIn { to { opacity: 1; } }
   .page-out { opacity: 0; transition: opacity 280ms ease; }
