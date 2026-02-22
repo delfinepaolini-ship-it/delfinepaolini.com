@@ -13,11 +13,8 @@
       --bone:#F4F1EA;
       --charcoal:#1B1B1B;
       --wine:#6B1F1F;
-      --muted:#6c6c6c;
       --rule: rgba(27,27,27,0.12);
       --surface: rgba(255,255,255,0.35);
-      --stroke: rgba(27,27,27,0.12);
-      --soft: rgba(27,27,27,0.06);
     }
 
     html { scroll-behavior: smooth; }
@@ -34,7 +31,7 @@
       text-decoration: none;
     }
 
-    /* Top nav */
+    /* NAV */
     nav{
       position: fixed;
       top: 26px;
@@ -62,17 +59,18 @@
     }
 
     nav a{
-      text-decoration:none;
       color: var(--charcoal);
       opacity: 0.92;
     }
 
-    nav a:hover{ color: var(--wine); opacity: 1; }
+    nav a:hover{ 
+      color: var(--wine); 
+      opacity: 1; 
+    }
 
-    /* Layout */
     .wrap{ width:min(980px, 88vw); margin:0 auto; }
 
-    /* Hero */
+    /* HERO */
     .hero{
       min-height: 55vh;
       display:flex;
@@ -86,7 +84,6 @@
       font-weight: 400;
       font-size: clamp(44px, 6vw, 66px);
       margin: 0 0 16px 0;
-      letter-spacing: 0.2px;
     }
 
     .hero .role{
@@ -102,7 +99,6 @@
       line-height: 1.75;
       max-width: 740px;
       margin: 0;
-      color: rgba(27,27,27,0.90);
     }
 
     .hero .thesis em{
@@ -110,7 +106,7 @@
       color: var(--wine);
     }
 
-    /* Rothko field */
+    /* IMAGE FIELD */
     .field{
       position: relative;
       height: 68vh;
@@ -128,10 +124,8 @@
       content:"";
       position:absolute; inset:0;
       background: radial-gradient(80% 80% at 50% 50%, rgba(0,0,0,0.10), rgba(0,0,0,0.30));
-      pointer-events:none;
     }
 
-    /* Sections */
     section.block{ padding: 58px 0; }
 
     .kicker{
@@ -139,26 +133,23 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: rgba(27,27,27,0.60);
-      margin: 0 0 10px 0;
+      margin-bottom: 10px;
     }
 
     h2{
       font-family:'Playfair Display', serif;
       font-weight: 400;
       font-size: 30px;
-      margin: 0 0 22px 0;
+      margin-bottom: 22px;
     }
 
     p{
       font-size: 16px;
       line-height: 1.9;
-      margin: 0 0 18px 0;
-      color: rgba(27,27,27,0.92);
+      margin-bottom: 18px;
     }
 
-    .rule{ height:1px; background: var(--rule); margin: 34px 0; }
-
-    /* Films grid */
+    /* FILMS GRID */
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -168,9 +159,9 @@
 
     .card{
       grid-column: span 6;
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(27,27,27,0.12);
       border-radius: 18px;
-      padding: 18px 18px 16px 18px;
+      padding: 18px;
       background: var(--surface);
       backdrop-filter: blur(6px);
     }
@@ -178,7 +169,7 @@
     .card h3{
       font-family:'Playfair Display', serif;
       font-weight: 400;
-      margin: 0 0 8px 0;
+      margin-bottom: 8px;
       font-size: 22px;
     }
 
@@ -199,142 +190,11 @@
       font-size: 12px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      text-decoration: none;
       margin-top: 8px;
       margin-right: 8px;
     }
 
     .pill:hover{ background: rgba(107,31,31,0.07); }
-
-    .enter{
-      display:inline-block;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      border-bottom: 1px solid rgba(27,27,27,0.35);
-      padding-bottom: 3px;
-      opacity: 0.9;
-    }
-
-    .enter:hover{
-      color: var(--wine);
-      border-bottom-color: rgba(107,31,31,0.55);
-      opacity: 1;
-    }
-
-    /* LRO portal on homepage */
-    .lro-portal{
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      padding: 28px 22px;
-      isolation: isolate;
-      border: 1px solid rgba(27,27,27,0.10);
-      background: rgba(255,255,255,0.20);
-      backdrop-filter: blur(8px);
-    }
-
-    .lro-portal::before{
-      content:"";
-      position:absolute;
-      inset: -40px;
-      background-image: url("lro-hero.jpg");
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      filter: saturate(92%) contrast(1.02);
-      transform: scale(1.02);
-      transition: opacity 700ms ease;
-      z-index: -2;
-    }
-
-    .lro-portal::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: rgba(244,241,234,0.65);
-      opacity: 0;
-      transition: opacity 700ms ease;
-      z-index: -1;
-    }
-
-    .lro-portal:hover::before{ opacity: 0.30; }
-    .lro-portal:hover::after{ opacity: 1; }
-
-    .lro-portal:hover .pill{
-      border-color: rgba(107,31,31,0.35);
-    }
-
-    /* BIO — sophisticated editorial layout */
-    .bio-shell{
-      border: 1px solid rgba(27,27,27,0.10);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.22);
-      backdrop-filter: blur(8px);
-      padding: 26px 22px;
-    }
-
-    .bio-grid{
-      display:grid;
-      grid-template-columns: 0.9fr 1.45fr;
-      gap: 34px;
-      align-items: start;
-    }
-
-    .bio-portrait{
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(27,27,27,0.10);
-      background: rgba(255,255,255,0.25);
-    }
-
-    .bio-portrait img{
-      width: 100%;
-      height: auto;
-      display:block;
-      filter: saturate(0.95) contrast(1.02);
-    }
-
-    .bio-title{
-      margin: 0 0 10px 0;
-      font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: 28px;
-      letter-spacing: 0.2px;
-    }
-
-    .bio-sub{
-      margin: 0 0 18px 0;
-      font-size: 12px;
-      letter-spacing: 1.9px;
-      text-transform: uppercase;
-      color: rgba(27,27,27,0.62);
-    }
-
-    .bio-text p{
-      max-width: 66ch;
-    }
-
-    .bio-fine{
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--rule);
-      font-size: 13px;
-      color: rgba(27,27,27,0.72);
-      line-height: 1.8;
-    }
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items:start;
-    }
-
-    .contact a{ color: var(--wine); text-decoration: none; }
-    .contact a:hover{ text-decoration: underline; }
 
     footer{
       padding: 56px 0 70px 0;
@@ -343,18 +203,10 @@
       border-top: 1px solid var(--rule);
     }
 
-    /* Mobile */
     @media (max-width: 760px){
       nav{ padding: 0 16px; }
       .card{ grid-column: span 12; }
-      .contact{ grid-template-columns: 1fr; }
       .field{ min-height: 420px; }
-      .lro-portal{ padding: 22px 16px; }
-      section.block{ padding: 46px 0; }
-
-      .bio-shell{ padding: 22px 16px; }
-      .bio-grid{ grid-template-columns: 1fr; gap: 22px; }
-      .bio-title{ font-size: 26px; }
     }
   </style>
 </head>
@@ -363,8 +215,7 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#about">About</a>
-      <a href="#bio">Bio</a>
+      <a href="bio.html">Bio</a>
       <a href="films.html">Films</a>
       <a href="#current">Current</a>
       <a href="#contact">Contact</a>
@@ -383,117 +234,15 @@
 
   <div class="field" aria-label="Painterly red field"></div>
 
-  <!-- ABOUT -->
-  <section id="about" class="block" style="padding: 34px 0 40px 0;">
-    <div class="wrap">
-      <div class="kicker">About</div>
-      <h2>Cinema that examines the moral consequence of endurance</h2>
-      <p>
-        What does it cost to survive an ethical rupture? And how do we live in its aftermath without absolution or erasure?
-        These are the questions that structure my work.
-      </p>
-    </div>
-  </section>
-
-  <!-- BIO -->
-  <section id="bio" class="block">
-    <div class="wrap">
-      <div class="kicker">Bio</div>
-
-      <div class="bio-shell">
-        <div class="bio-grid">
-
-          <div class="bio-portrait">
-            <img src="DB11B8EB-EC97-4230-BC65-8D63AEB09C03.PNG" alt="Delfine Paolini">
-          </div>
-
-          <div class="bio-text">
-            <h3 class="bio-title">Delfine Paolini</h3>
-            <div class="bio-sub">Writer · Director · Producer</div>
-
-            <p>
-              Delfine Paolini is a Bronx-based writer, director, and visual artist whose films explore thanatological themes through psychological realism and painterly imagery. Her work is defined by stillness, restraint, and close observation—stories that examine fragile interior lives and the moral consequences of love, loss, and survival.
-            </p>
-
-            <p>
-              Before filmmaking, Delfine came up through New York’s downtown arts and punk scenes as a photographer, apprenticing with legendary rock photographer Mick Rock. That early DIY ethos—resourceful, handmade, and fiercely independent—continues to shape her approach to cinema. She builds films the way she once built zines and photo series: intimate, tactile, and emotionally direct.
-            </p>
-
-            <p>
-              Her debut feature, <em>A Wonderful Way with Dragons</em>, was produced on a microbudget, won over 55 international awards, and successfully recouped its costs, establishing her as both a disciplined producer and a distinctive auteur voice in independent film.
-            </p>
-
-            <div class="bio-fine">
-              Founder of <span style="color: var(--wine);">LRO Productions, LLC</span> &amp; <span style="color: var(--wine);">Le Rouge Films, LLC</span>. Developing an interconnected slate including <em>Le Rouge Originel</em>, <em>Reds Hearten</em>, and <em>Sky, Zyprexa, Night</em>.
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FILMS -->
-  <section id="films" class="block" style="margin-top: 20px;">
-    <div class="wrap">
-      <div class="kicker">Films</div>
-      <h2>Selected work</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>A Wonderful Way with Dragons</h3>
-          <div class="meta">Feature · Writer/Director/Producer</div>
-          <p>
-            After a pandemic sweeps the world, six children remain abandoned on an enigmatic island. Their struggle to survive becomes paled by individual desires for power.
-          </p>
-          <a class="pill" href="https://vimeo.com/955016561" target="_blank" rel="noopener">Trailer</a>
-          <a class="pill" href="https://deadline.com/2023/05/m3gan-star-violet-mcgraw-signs-indie-production-a-wonderful-way-with-dragons-1235366354/" target="_blank" rel="noopener">Press</a>
-        </div>
-
-        <div class="card">
-          <h3>Reds Hearten</h3>
-          <div class="meta">Feature · In development</div>
-          <p>
-            A woman must confront the consequences of becoming what she once only observed.
-          </p>
-          <a class="enter" href="reds-hearten.html">Enter Film</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CURRENT -->
-  <section id="current" class="block" style="margin-top: 20px;">
+  <section id="current" class="block">
     <div class="wrap">
-      <div class="lro-portal">
-        <div class="kicker">Current Feature</div>
-        <h2>Le Rouge Originel</h2>
-        <p></p>
-
-        <a class="pill" href="le-rouge-originel.html">Enter film</a>
-
-        <div class="rule"></div>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Logline</h3>
-            <div class="meta">Feature · In Pre-Production</div>
-            <p>
-              A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
-            </p>
-            <a class="pill" href="le-rouge-originel.html">Full project page</a>
-          </div>
-
-          <div class="card">
-            <h3>Core Question</h3>
-            <div class="meta">Theme</div>
-            <p>
-              How does a person become capable of sin?
-            </p>
-          </div>
-        </div>
-      </div><!-- end .lro-portal -->
+      <div class="kicker">Current Feature</div>
+      <h2>Le Rouge Originel</h2>
+      <p>
+        A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
+      </p>
+      <a class="pill" href="le-rouge-originel.html">Enter Film</a>
     </div>
   </section>
 
@@ -502,25 +251,13 @@
     <div class="wrap">
       <div class="kicker">Contact</div>
       <h2>Inquiries</h2>
-
-      <div class="contact">
-        <div>
-          <p>Contact me here:</p>
-          <p>
-            Email: <a href="mailto:LRO.Production@mail.com">LRO.Production@mail.com</a>
-          </p>
-        </div>
-
-        <div>
-          <p style="color: rgba(27,27,27,0.70);"></p>
-        </div>
-      </div>
+      <p>Email: <a href="mailto:LRO.Production@mail.com">LRO.Production@mail.com</a></p>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Delfine Paolini / LRO Production, LLC &amp; Le Rouge Films
+      © <span id="year"></span> Delfine Paolini / LRO Production, LLC & Le Rouge Films
     </div>
   </footer>
 
