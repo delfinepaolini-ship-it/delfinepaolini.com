@@ -25,15 +25,13 @@
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--paper);
       color:var(--ink);
+      padding-top: 84px; /* gives room for fixed nav */
     }
 
     .wrap{
       width:min(860px, 88vw);
       margin:0 auto;
     }
-    <div style="padding:20px; font-size:20px; background:yellow;">
-
-</div>
 
     /* NAV */
     nav{
@@ -203,6 +201,7 @@
     @media (max-width:760px){
       nav{ padding:0 16px; }
       .image-block{ margin: 46px 0; }
+      body{ padding-top: 74px; }
     }
   </style>
 </head>
@@ -272,3 +271,4 @@
   </footer>
 
 </body>
+</html>
