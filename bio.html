@@ -1,99 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="bio">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Delfine Paolini | Bio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-body {
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #1a1a1a;
-    line-height: 1.7;
-}
+  :root{
+    --bone:#F4F1EA;
+    --charcoal:#1B1B1B;
+    --wine:#6B1F1F;
+    --rule: rgba(27,27,27,0.12);
+    --surface: rgba(255,255,255,0.30);
+  }
 
-.container {
-    max-width: 1100px;
-    margin: 80px auto;
-    padding: 0 20px;
-}
+  html { scroll-behavior: smooth; }
 
-.bio-wrapper {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
+  body{
+    margin:0;
+    font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:var(--bone);
+    color:var(--charcoal);
+    opacity: 0;
+    animation: pageIn 520ms ease forwards;
+  }
 
-.bio-image img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    display: block;
-}
+  @keyframes pageIn { to { opacity: 1; } }
+  .page-out { opacity: 0; transition: opacity 280ms ease; }
 
-.bio-text {
-    flex: 1;
-}
+  a{ color: inherit; text-decoration: none; }
 
-h1 {
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 25px;
-    letter-spacing: .5px;
-}
+  nav{
+    position: fixed;
+    top: 26px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display:flex;
+    justify-content: flex-end;
+    padding: 0 56px;
+    pointer-events: none;
+  }
 
-p {
-    margin-bottom: 22px;
-    font-size: 17px;
-}
+  nav .nav-inner{
+    pointer-events: auto;
+    display:flex;
+    gap: 22px;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    background: rgba(244,241,234,0.78);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(27,27,27,0.10);
+    border-radius: 999px;
+    padding: 10px 14px;
+  }
 
-@media (max-width: 900px) {
-    .bio-wrapper {
-        flex-direction: column;
-        gap: 40px;
-    }
+  nav a{
+    color: var(--charcoal);
+    opacity: 0.92;
+    position: relative;
+    padding: 2px 2px;
+  }
 
-    .bio-image img {
-        max-width: 100%;
-    }
-}
+  nav a:hover{ color: var(--wine); opacity: 1; }
+
+  nav a[aria-current="page"]{
+    color: var(--wine);
+    opacity: 1;
+  }
+  nav a[aria-current="page"]::after{
+    content:"";
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: rgba(107,31,31,0.45);
+  }
+
+  .wrap{ width:min(980px, 88vw); margin:0 auto; }
+  .container{ padding-top: 120px; padding-bottom: 80px; }
+
+  .bio-shell{
+    border: 1px solid rgba(27,27,27,0.10);
+    border-radius: 18px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    padding: 26px 22px;
+  }
+
+  .kicker{
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(27,27,27,0.60);
+    margin: 0 0 12px 0;
+  }
+
+  .bio-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.5fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .portrait{
+    border-radius: 14px;
+    overflow:hidden;
+    border: 1px solid rgba(27,27,27,0.10);
+    background: rgba(255,255,255,0.25);
+  }
+
+  .portrait img{
+    width:100%;
+    height:auto;
+    display:block;
+    filter: saturate(0.95) contrast(1.02);
+  }
+
+  h1{
+    font-family:'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 34px;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.2px;
+  }
+
+  .sub{
+    font-size: 12px;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: rgba(27,27,27,0.62);
+    margin-bottom: 18px;
+  }
+
+  p{
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 0 0 18px 0;
+    color: rgba(27,27,27,0.92);
+    max-width: 66ch;
+  }
+
+  .fine{
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(27,27,27,0.72);
+    max-width: 66ch;
+  }
+
+  @media (max-width: 760px){
+    nav{ padding: 0 16px; }
+    .bio-shell{ padding: 22px 16px; }
+    .bio-grid{ grid-template-columns: 1fr; gap: 22px; }
+    h1{ font-size: 30px; }
+  }
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
-    <div class="bio-wrapper">
-        
-        <div class="bio-image">
-            <img src="DB11B8EB-EC97-4230-BC65-8D63AEB09C03.PNG" alt="Delfine Paolini">
-        </div>
-
-        <div class="bio-text">
-            <h1>Delfine Paolini – Writer/Director/Producer</h1>
-
-            <p>
-            Delfine Paolini is a Bronx-based writer, director, and visual artist whose films explore thanatological themes through psychological realism and painterly imagery. Her work is defined by stillness, restraint, and close observation—stories that examine fragile interior lives and the moral consequences of love, loss, and survival.
-            </p>
-
-            <p>
-            Before filmmaking, Delfine came up through New York’s downtown arts and punk scenes as a photographer, apprenticing with legendary rock photographer Mick Rock. That early DIY ethos—resourceful, handmade, and fiercely independent—continues to shape her approach to cinema. She builds films the way she once built zines and photo series: intimate, tactile, and emotionally direct.
-            </p>
-
-            <p>
-            Her debut feature, <em>A Wonderful Way with Dragons</em>, was produced on a microbudget, won over 55 international awards, and successfully recouped its costs, establishing her as both a disciplined producer and a distinctive auteur voice in independent film.
-            </p>
-
-            <p>
-            She is the founder of LRO Productions, LLC &amp; Le Rouge Films, LLC, and is currently developing an interconnected slate of features including <em>Le Rouge Originel</em>, <em>Reds Hearten</em>, and <em>Sky, Zyprexa, Night</em>.
-            </p>
-
-        </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="bio.html" aria-current="page">Bio</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
     </div>
-</div>
+  </nav>
+
+  <div class="container">
+    <div class="wrap">
+      <div class="kicker">Bio</div>
+
+      <div class="bio-shell">
+        <div class="bio-grid">
+
+          <div class="portrait">
+            <img src="DB11B8EB-EC97-4230-BC65-8D63AEB09C03.PNG" alt="Delfine Paolini">
+          </div>
+
+          <div>
+            <h1>Delfine Paolini</h1>
+            <div class="sub">Writer · Director · Producer</div>
+
+            <p>
+              Delfine Paolini is a Bronx-based writer, director, and visual artist whose films explore thanatological themes through psychological realism and painterly imagery. Her work is defined by stillness, restraint, and close observation—stories that examine fragile interior lives and the moral consequences of love, loss, and survival.
+            </p>
+
+            <p>
+              Before filmmaking, Delfine came up through New York’s downtown arts and punk scenes as a photographer, apprenticing with legendary rock photographer Mick Rock. That early DIY ethos—resourceful, handmade, and fiercely independent—continues to shape her approach to cinema. She builds films the way she once built zines and photo series: intimate, tactile, and emotionally direct.
+            </p>
+
+            <p>
+              Her debut feature, <em>A Wonderful Way with Dragons</em>, was produced on a microbudget, won over 55 international awards, and successfully recouped its costs, establishing her as both a disciplined producer and a distinctive auteur voice in independent film.
+            </p>
+
+            <div class="fine">
+              Founder of <span style="color:var(--wine);">LRO Productions, LLC</span> &amp; <span style="color:var(--wine);">Le Rouge Films, LLC</span>. Currently developing an interconnected slate including <em>Le Rouge Originel</em>, <em>Reds Hearten</em>, and <em>Sky, Zyprexa, Night</em>.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Fade-out transitions for page links (not hash links / not new tabs)
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const isHash = href.startsWith('#');
+      const isMail = href.startsWith('mailto:');
+      const isExternal = /^https?:\/\//i.test(href);
+      const newTab = a.getAttribute('target') === '_blank';
+
+      if (!isHash && !isMail && !isExternal && !newTab) {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.add('page-out');
+          setTimeout(() => { window.location.href = href; }, 280);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
