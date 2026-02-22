@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,18 +18,20 @@
     }
 
     html { scroll-behavior: smooth; }
-
     body{
       margin:0;
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--bone);
       color:var(--charcoal);
+      opacity: 0;
+      animation: pageIn 520ms ease forwards;
     }
 
-    a{
-      color: inherit;
-      text-decoration: none;
-    }
+    /* Page transitions */
+    @keyframes pageIn { to { opacity: 1; } }
+    .page-out { opacity: 0; transition: opacity 280ms ease; }
+
+    a{ color: inherit; text-decoration: none; }
 
     /* NAV */
     nav{
@@ -61,29 +63,47 @@
     nav a{
       color: var(--charcoal);
       opacity: 0.92;
+      position: relative;
+      padding: 2px 2px;
     }
 
-    nav a:hover{ 
-      color: var(--wine); 
-      opacity: 1; 
+    nav a:hover{
+      color: var(--wine);
+      opacity: 1;
+    }
+
+    /* Active tab */
+    nav a[aria-current="page"]{
+      color: var(--wine);
+      opacity: 1;
+    }
+    nav a[aria-current="page"]::after{
+      content:"";
+      position:absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 1px;
+      background: rgba(107,31,31,0.45);
     }
 
     .wrap{ width:min(980px, 88vw); margin:0 auto; }
 
     /* HERO */
     .hero{
-      min-height: 55vh;
+      min-height: 54vh;
       display:flex;
       align-items:center;
-      padding-top: 90px;
-      padding-bottom: 20px;
+      padding-top: 96px;
+      padding-bottom: 26px;
     }
 
     .hero h1{
       font-family:'Playfair Display', serif;
       font-weight: 400;
       font-size: clamp(44px, 6vw, 66px);
-      margin: 0 0 16px 0;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.2px; /* tighter / more European */
     }
 
     .hero .role{
@@ -96,9 +116,10 @@
 
     .hero .thesis{
       font-size: 18px;
-      line-height: 1.75;
-      max-width: 740px;
+      line-height: 1.78;
+      max-width: 700px;
       margin: 0;
+      color: rgba(27,27,27,0.90);
     }
 
     .hero .thesis em{
@@ -111,7 +132,7 @@
       position: relative;
       height: 68vh;
       min-height: 520px;
-      margin-top: -60px;
+      margin-top: -64px;
       border-bottom: 1px solid var(--rule);
       overflow: hidden;
       background-image: url('1B7B1DA9-BF29-4C34-BC3F-469A9D751613.JPG');
@@ -124,9 +145,10 @@
       content:"";
       position:absolute; inset:0;
       background: radial-gradient(80% 80% at 50% 50%, rgba(0,0,0,0.10), rgba(0,0,0,0.30));
+      pointer-events: none;
     }
 
-    section.block{ padding: 58px 0; }
+    section.block{ padding: 70px 0; }
 
     .kicker{
       font-size: 12px;
@@ -140,47 +162,17 @@
       font-family:'Playfair Display', serif;
       font-weight: 400;
       font-size: 30px;
-      margin-bottom: 22px;
+      margin: 0 0 18px 0;
     }
 
     p{
       font-size: 16px;
       line-height: 1.9;
-      margin-bottom: 18px;
+      margin: 0 0 18px 0;
+      color: rgba(27,27,27,0.92);
     }
 
-    /* FILMS GRID */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .card{
-      grid-column: span 6;
-      border: 1px solid rgba(27,27,27,0.12);
-      border-radius: 18px;
-      padding: 18px;
-      background: var(--surface);
-      backdrop-filter: blur(6px);
-    }
-
-    .card h3{
-      font-family:'Playfair Display', serif;
-      font-weight: 400;
-      margin-bottom: 8px;
-      font-size: 22px;
-    }
-
-    .meta{
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: rgba(27,27,27,0.62);
-      margin-bottom: 12px;
-    }
-
+    /* Pills */
     .pill{
       display:inline-block;
       border: 1px solid rgba(107,31,31,0.35);
@@ -190,7 +182,7 @@
       font-size: 12px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-top: 8px;
+      margin-top: 10px;
       margin-right: 8px;
     }
 
@@ -205,8 +197,8 @@
 
     @media (max-width: 760px){
       nav{ padding: 0 16px; }
-      .card{ grid-column: span 12; }
       .field{ min-height: 420px; }
+      section.block{ padding: 54px 0; }
     }
   </style>
 </head>
@@ -215,6 +207,7 @@
 
   <nav>
     <div class="nav-inner">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="bio.html">Bio</a>
       <a href="films.html">Films</a>
       <a href="#current">Current</a>
@@ -251,18 +244,36 @@
     <div class="wrap">
       <div class="kicker">Contact</div>
       <h2>Inquiries</h2>
-      <p>Email: <a href="mailto:LRO.Production@mail.com">LRO.Production@mail.com</a></p>
+      <p>Email: <a href="mailto:LRO.Production@mail.com" style="color:var(--wine);">LRO.Production@mail.com</a></p>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Delfine Paolini / LRO Production, LLC & Le Rouge Films
+      © <span id="year"></span> Delfine Paolini / LRO Production, LLC &amp; Le Rouge Films
     </div>
   </footer>
 
   <script>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Fade-out transitions for page links (not hash links / not new tabs)
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const isHash = href.startsWith('#');
+      const isMail = href.startsWith('mailto:');
+      const isExternal = /^https?:\/\//i.test(href);
+      const newTab = a.getAttribute('target') === '_blank';
+
+      if (!isHash && !isMail && !isExternal && !newTab) {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.add('page-out');
+          setTimeout(() => { window.location.href = href; }, 280);
+        });
+      }
+    });
   </script>
 
 </body>
