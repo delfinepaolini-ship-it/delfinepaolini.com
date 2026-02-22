@@ -14,6 +14,8 @@
       --wine:#6B1F1F;
       --rule: rgba(27,27,27,0.12);
       --nav-offset: 84px;
+      --stroke: rgba(27,27,27,0.10);
+      --surface: rgba(255,255,255,0.22);
     }
 
     html{ scroll-behavior: smooth; }
@@ -138,39 +140,40 @@
       margin:70px 0;
     }
 
-    /* IMAGES */
-    .secondary-image{
-      margin: 60px 0 18px 0;
-      text-align: center;
+    /* NEW: NYC IMAGE SEQUENCE (replaces river + deer) */
+    .lro-seq{
+      padding: 10px 0 8px 0;
     }
 
-    .secondary-image img{
-      display:block;
-      margin:0 auto;
-      width: 100%;
-      max-width: 820px;
-      height:auto;
-      border-radius: 14px;
-      opacity: 0.98;
-    }
-
-    .secondary-image.lro-river{
-      width: min(1200px, 94vw);
-      margin: 70px auto 18px auto;
-    }
-
-    .secondary-image.lro-river img{
-      max-width: 100%;
-      width: 100%;
-      opacity: 0.92;
+    .lro-frame{
+      margin: 26px 0 12px 0;
       border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      background: var(--surface);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
+    .lro-frame img{
+      display:block;
+      width: 100%;
+      height: auto;
+      filter: saturate(0.94) contrast(1.02);
+    }
+
+    .lro-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 26px 0 12px 0;
     }
 
     .image-fragment{
       font-size: 0.9rem;
       letter-spacing: 0.08em;
       text-transform: lowercase;
-      margin: 14px auto 70px auto;
+      margin: 10px auto 38px auto;
       max-width: 600px;
       opacity: 0.75;
       text-align: center;
@@ -192,7 +195,7 @@
       color:rgba(27,27,27,0.55);
     }
 
-    /* Scroll reveal (same as Upstate) */
+    /* Scroll reveal */
     .reveal{
       opacity: 0;
       transform: translateY(10px);
@@ -215,8 +218,8 @@
 
     @media (max-width:760px){
       nav{ padding:0 16px; }
-      .secondary-image.lro-river{ width: 94vw; }
       :root{ --nav-offset: 74px; }
+      .lro-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -244,24 +247,41 @@
     </div>
   </header>
 
-  <!-- Wide river outside wrap -->
-  <div class="secondary-image lro-river reveal">
-    <img src="ChatGPT%20Image%20Feb%2021,%202026%20at%2006_59_10%20PM.png"
-         alt="Le Rouge Originel — river at dusk">
-  </div>
-  <p class="image-fragment reveal">observation becomes participation</p>
+  <!-- NYC IMAGE SEQUENCE (replaces your river + deer images) -->
+  <section class="lro-seq">
+    <div class="wrap">
+
+      <!-- 1) Rain rooftops -->
+      <div class="lro-frame reveal">
+        <img src="lro-rain.jpg" alt="Le Rouge Originel — rain rooftops">
+      </div>
+      <p class="image-fragment reveal">observation becomes participation</p>
+
+      <!-- 2) Teal avenue with red tail lights -->
+      <div class="lro-frame reveal">
+        <img src="lro-rooftops.jpg" alt="Le Rouge Originel — avenue">
+      </div>
+      <p class="image-fragment reveal">the city is a system</p>
+
+      <!-- 3) Split: subway + reflection -->
+      <div class="lro-grid">
+        <div class="lro-frame reveal">
+          <img src="lro-subway.jpg" alt="Le Rouge Originel — subway platform">
+        </div>
+        <div class="lro-frame reveal">
+          <img src="lro-spying.jpg" alt="Le Rouge Originel — reflection">
+        </div>
+      </div>
+      <p class="image-fragment reveal">distance / fracture</p>
+
+    </div>
+  </section>
 
   <main class="wrap">
 
     <div class="rule reveal"></div>
 
     <div class="manifesto reveal">LOVE LED US TO ONE DEATH</div>
-
-    <div class="secondary-image reveal">
-      <img src="lro-deer.png"
-           alt="Le Rouge Originel — deer in autumn">
-    </div>
-    <p class="image-fragment reveal">presence without intervention</p>
 
     <div class="rule reveal"></div>
 
@@ -280,7 +300,7 @@
 
   <footer>
     <div class="wrap">
-      © 2026 Delfine Paolini / LRO Productions, LLC & Les Rouge Films
+      © 2026 Delfine Paolini / LRO Productions, LLC &amp; Les Rouge Films
     </div>
   </footer>
 
