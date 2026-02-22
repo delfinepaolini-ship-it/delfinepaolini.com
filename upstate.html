@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upstate — Delfine Paolini</title> 
+  <title>Upstate — Delfine Paolini</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -16,6 +16,9 @@
       --gold:#B08A4F;      /* late-summer flare */
       --mist: rgba(23,23,23,0.10);
       --rule: rgba(23,23,23,0.12);
+
+      /* layout */
+      --nav-offset: 84px; /* room for fixed nav */
     }
 
     html{ scroll-behavior:smooth; }
@@ -25,7 +28,7 @@
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--paper);
       color:var(--ink);
-      padding-top: 84px; /* room for fixed nav */
+      padding-top: var(--nav-offset);
     }
 
     .wrap{
@@ -52,6 +55,7 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
       background: rgba(245,242,236,0.78);
+      -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(23,23,23,0.10);
       border-radius: 999px;
@@ -169,11 +173,6 @@
       margin: 74px auto;
     }
 
-    .image-block.wide img{
-      max-width: 100%;
-      border-radius: 16px;
-    }
-
     footer{
       margin-top:86px;
       padding:54px 0 74px 0;
@@ -207,7 +206,7 @@
     @media (max-width:760px){
       nav{ padding:0 16px; }
       .image-block{ margin: 46px 0; }
-      body{ padding-top: 74px; }
+      :root{ --nav-offset: 74px; }
     }
   </style>
 </head>
@@ -246,7 +245,7 @@
       <img src="upstate-blue.jpg" alt="Upstate — interior witness">
     </div>
 
-    <div class="core reveal">How we cry after it</div>
+    <div class="core reveal">how we cry after it</div>
 
     <!-- IMAGE 2 -->
     <div class="image-block reveal">
