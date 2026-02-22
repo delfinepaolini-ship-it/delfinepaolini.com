@@ -32,7 +32,7 @@
       margin:0 auto;
     }
 
-    /* NAV (same as LRO for consistency) */
+    /* NAV */
     nav{
       position: fixed;
       top: 26px;
@@ -43,6 +43,7 @@
       justify-content: flex-end;
       padding: 0 56px;
     }
+
     nav .nav-inner{
       display:flex;
       gap: 22px;
@@ -55,47 +56,54 @@
       border-radius: 999px;
       padding: 10px 14px;
     }
+
     nav a{
       text-decoration:none;
       color: var(--ink);
       opacity: 0.9;
     }
-    nav a:hover{ color: var(--blue); opacity: 1; }
 
-    
- .hero{
-  height: 70vh;
-  min-height: 520px;
-  background-image: url("upstate-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-}
+    nav a:hover{
+      color: var(--blue);
+      opacity: 1;
+    }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.03),
-    rgba(0,0,0,0.12)
-  );
-  pointer-events:none;
-}
-    
+    /* HERO */
+    .hero{
+      height: 70vh;
+      min-height: 520px;
+      background-color: #d9d4cd; /* fallback */
+      background-image: url("upstate-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.12)
+      );
+      pointer-events:none;
+    }
 
     header{
       padding: 62px 0 22px 0;
     }
+
     h1{
       font-family:'Playfair Display', serif;
       font-weight:400;
       font-size: clamp(42px, 5vw, 60px);
       margin: 0 0 14px 0;
     }
+
     .meta{
       font-size: 12px;
       letter-spacing: 2px;
@@ -103,6 +111,7 @@
       color: rgba(23,23,23,0.60);
       margin-bottom: 28px;
     }
+
     .thesis{
       font-size:18px;
       line-height:1.75;
@@ -124,7 +133,7 @@
       margin:52px 0;
     }
 
-    /* Upstate “core” is quieter than LRO: smaller, more breath */
+    /* Poetic core (quiet) */
     .core{
       font-family:'Playfair Display', serif;
       font-weight: 400;
@@ -142,6 +151,7 @@
       margin: 64px 0;
       text-align: center;
     }
+
     .image-block img{
       width: 100%;
       max-width: 980px;
@@ -150,11 +160,10 @@
       margin:0 auto;
       border-radius: 14px;
       opacity: 0.96;
-      /* gentle film softness without blur */
       filter: contrast(1.02) saturate(0.98);
     }
 
-    /* “Fragment” line under image */
+    /* Fragment line under image */
     .image-fragment{
       margin: 14px auto 0 auto;
       text-align:center;
@@ -163,22 +172,23 @@
       text-transform: uppercase;
       color: rgba(23,23,23,0.55);
     }
+
     .image-fragment em{
       font-style: normal;
       color: var(--blue);
     }
 
-    /* Optional: wide “panoramic” block */
+    /* Wide block */
     .image-block.wide{
       width: min(1200px, 94vw);
       margin: 74px auto;
     }
+
     .image-block.wide img{
       max-width: 100%;
       border-radius: 16px;
     }
 
-    /* Footer */
     footer{
       margin-top:86px;
       padding:54px 0 74px 0;
@@ -229,7 +239,7 @@
 
   </main>
 
-  <!-- IMAGE 1 (Opening thesis image) -->
+  <!-- IMAGE 1 -->
   <div class="image-block wide">
     <img src="upstate-opening.jpg" alt="Upstate — opening fragment">
     <p class="image-fragment">i never found her</p>
@@ -237,7 +247,7 @@
 
   <main class="wrap">
 
-    <!-- IMAGE 2 (Horse distance / turning away) -->
+    <!-- IMAGE 2 -->
     <div class="image-block">
       <img src="upstate-horse.jpg" alt="Upstate — horse in distance">
       <p class="image-fragment">not <em>near enough</em></p>
@@ -250,7 +260,7 @@
       But protection has a limit. And distance can arrive while someone is still standing beside you.
     </p>
 
-    <!-- IMAGE 3 (Blue window / interior witness) -->
+    <!-- IMAGE 3 -->
     <div class="image-block">
       <img src="upstate-window.jpg" alt="Upstate — window / interior witness">
       <p class="image-fragment">witnessing becomes consequence</p>
@@ -260,7 +270,7 @@
 
   <footer>
     <div class="wrap">
-      © 2026 Delfine Paolini / LRO Productions, LLC & Les Rouge Films
+      © 2026 Delfine Paolini / SZN Film LLC
     </div>
   </footer>
 
