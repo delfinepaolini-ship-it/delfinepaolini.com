@@ -25,26 +25,70 @@
       background:var(--bone);
       color:var(--charcoal);
     }
+
     a{
-  color: inherit;
-  text-decoration: none;
-}
+      color: inherit;
+      text-decoration: none;
+    }
 
-.enter{
-  display:inline-block;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1.6px;
-  border-bottom: 1px solid rgba(27,27,27,0.35);
-  padding-bottom: 3px;
-  opacity: 0.9;
-}
+    /* LRO portal on homepage */
+    .lro-portal{
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 28px 22px;
+      isolation: isolate; /* ensures overlay layers behave */
+    }
 
-.enter:hover{
-  color: var(--wine);
-  border-bottom-color: rgba(107,31,31,0.55);
-  opacity: 1;
-}
+    .lro-portal::before{
+      content:"";
+      position:absolute;
+      inset: -40px;
+      background-image: url("lro-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      filter: saturate(92%) contrast(1.02);
+      transform: scale(1.02);
+      transition: opacity 700ms ease;
+      z-index: -2;
+    }
+
+    /* subtle “paper” veil so text stays crisp */
+    .lro-portal::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(244,241,234,0.86); /* match bone tone */
+      opacity: 0;
+      transition: opacity 700ms ease;
+      z-index: -1;
+    }
+
+    /* reveal on hover */
+    .lro-portal:hover::before{ opacity: 0.14; }
+    .lro-portal:hover::after{ opacity: 1; }
+
+    /* optional: wine tint for the pill on hover */
+    .lro-portal:hover .pill{
+      border-color: rgba(107,31,31,0.35);
+    }
+
+    .enter{
+      display:inline-block;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      border-bottom: 1px solid rgba(27,27,27,0.35);
+      padding-bottom: 3px;
+      opacity: 0.9;
+    }
+
+    .enter:hover{
+      color: var(--wine);
+      border-bottom-color: rgba(107,31,31,0.55);
+      opacity: 1;
+    }
 
     /* Top nav */
     nav{
@@ -58,6 +102,7 @@
       padding: 0 56px;
       pointer-events: none;
     }
+
     nav .nav-inner{
       pointer-events: auto;
       display:flex;
@@ -71,11 +116,13 @@
       border-radius: 999px;
       padding: 10px 14px;
     }
+
     nav a{
       text-decoration:none;
       color: var(--charcoal);
       opacity: 0.9;
     }
+
     nav a:hover{ color: var(--wine); opacity: 1; }
 
     /* Layout */
@@ -89,6 +136,7 @@
       padding-top: 90px;
       padding-bottom: 20px;
     }
+
     .hero h1{
       font-family:'Playfair Display', serif;
       font-weight: 400;
@@ -96,6 +144,7 @@
       margin: 0 0 16px 0;
       letter-spacing: 0.2px;
     }
+
     .hero .role{
       font-size: 12px;
       letter-spacing: 2px;
@@ -103,6 +152,7 @@
       color: rgba(27,27,27,0.70);
       margin-bottom: 18px;
     }
+
     .hero .thesis{
       font-size: 18px;
       line-height: 1.7;
@@ -110,6 +160,7 @@
       margin: 0;
       color: rgba(27,27,27,0.90);
     }
+
     .hero .thesis em{
       font-style: normal;
       color: var(--wine);
@@ -128,6 +179,7 @@
       background-position: center;
       filter: saturate(0.78) contrast(1.06);
     }
+
     .field::before{
       content:"";
       position:absolute; inset:0;
@@ -145,18 +197,21 @@
       color: rgba(27,27,27,0.60);
       margin: 0 0 10px 0;
     }
+
     h2{
       font-family:'Playfair Display', serif;
       font-weight: 400;
       font-size: 30px;
       margin: 0 0 22px 0;
     }
+
     p{
       font-size: 16px;
       line-height: 1.85;
       margin: 0 0 18px 0;
       color: rgba(27,27,27,0.92);
     }
+
     .rule{ height:1px; background: var(--rule); margin: 34px 0; }
 
     /* Films grid */
@@ -166,6 +221,7 @@
       gap: 18px;
       margin-top: 28px;
     }
+
     .card{
       grid-column: span 6;
       border: 1px solid rgba(27,27,27,0.12);
@@ -174,12 +230,14 @@
       background: rgba(255,255,255,0.35);
       backdrop-filter: blur(6px);
     }
+
     .card h3{
       font-family:'Playfair Display', serif;
       font-weight: 400;
       margin: 0 0 8px 0;
       font-size: 22px;
     }
+
     .meta{
       font-size: 12px;
       letter-spacing: 1.6px;
@@ -187,6 +245,7 @@
       color: rgba(27,27,27,0.62);
       margin-bottom: 12px;
     }
+
     .pill{
       display:inline-block;
       border: 1px solid rgba(107,31,31,0.35);
@@ -200,6 +259,7 @@
       margin-top: 8px;
       margin-right: 8px;
     }
+
     .pill:hover{ background: rgba(107,31,31,0.07); }
 
     /* Contact */
@@ -209,6 +269,7 @@
       gap: 24px;
       align-items:start;
     }
+
     .contact a{ color: var(--wine); text-decoration: none; }
     .contact a:hover{ text-decoration: underline; }
 
@@ -225,6 +286,7 @@
       .card{ grid-column: span 12; }
       .contact{ grid-template-columns: 1fr; }
       .field{ min-height: 420px; }
+      .lro-portal{ padding: 22px 16px; }
     }
   </style>
 </head>
@@ -295,34 +357,34 @@
   <!-- CURRENT -->
   <section id="current" class="block" style="margin-top: 100px;">
     <div class="wrap">
-      <div class="kicker">Current Feature</div>
-      <h2>Le Rouge Originel</h2>
-      <p>
-        
-      </p>
+      <div class="lro-portal">
+        <div class="kicker">Current Feature</div>
+        <h2>Le Rouge Originel</h2>
+        <p></p>
 
-      <a class="pill" href="le-rouge-originel.html">Enter film</a>
+        <a class="pill" href="le-rouge-originel.html">Enter film</a>
 
-      <div class="rule"></div>
+        <div class="rule"></div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Logline</h3>
-          <div class="meta">Feature · In Pre-Production</div>
-          <p>
-            A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
-          </p>
-          <a class="pill" href="le-rouge-originel.html">Full project page</a>
+        <div class="grid">
+          <div class="card">
+            <h3>Logline</h3>
+            <div class="meta">Feature · In Pre-Production</div>
+            <p>
+              A woman embeds herself in the life of a criminal, and slowly becomes capable of sin.
+            </p>
+            <a class="pill" href="le-rouge-originel.html">Full project page</a>
+          </div>
+
+          <div class="card">
+            <h3>Core Question</h3>
+            <div class="meta">Theme</div>
+            <p>
+              How does a person become capable of sin?
+            </p>
+          </div>
         </div>
-
-        <div class="card">
-          <h3>Core Question</h3>
-          <div class="meta">Theme</div>
-          <p>
-            How does a person become capable of sin?
-          </p>
-        </div>
-      </div>
+      </div><!-- end .lro-portal -->
     </div>
   </section>
 
@@ -341,9 +403,7 @@
         </div>
 
         <div>
-          <p style="color: rgba(27,27,27,0.70);">
-          
-          </p>
+          <p style="color: rgba(27,27,27,0.70);"></p>
         </div>
       </div>
     </div>
