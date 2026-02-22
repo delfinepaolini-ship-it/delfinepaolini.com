@@ -13,6 +13,7 @@
       --charcoal:#1B1B1B;
       --wine:#6B1F1F;
       --rule: rgba(27,27,27,0.12);
+      --nav-offset: 84px;
     }
 
     html{ scroll-behavior: smooth; }
@@ -22,6 +23,7 @@
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--bone);
       color:var(--charcoal);
+      padding-top: var(--nav-offset);
     }
 
     .wrap{
@@ -48,6 +50,7 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
       background: rgba(244,241,234,0.75);
+      -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(27,27,27,0.10);
       border-radius: 999px;
@@ -65,7 +68,7 @@
       opacity: 1;
     }
 
-    /* HERO (red-hand image) */
+    /* HERO */
     .hero{
       height: 72vh;
       min-height: 540px;
@@ -82,6 +85,7 @@
       position:absolute;
       inset:0;
       background: rgba(0,0,0,0.18);
+      pointer-events:none;
     }
 
     /* HEADER */
@@ -116,6 +120,7 @@
       font-size:16px;
       line-height:1.9;
       margin: 0 0 20px 0;
+      color: rgba(27,27,27,0.92);
     }
 
     .rule{
@@ -124,55 +129,43 @@
       margin:48px 0;
     }
 
-   .manifesto{
-  font-family:'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 44px);
-  text-align:center;
-  color:#5a1111;
-  letter-spacing:1px;
-  margin:70px 0 70px 0;
-}
-
-    /* Poetic core */
-    .core{
+    .manifesto{
       font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: 0.01em;
-      max-width: 20ch;
-      margin: 0 auto 60px auto;
-      text-align: center;
+      font-size: clamp(32px, 4vw, 44px);
+      text-align:center;
+      color:#5a1111;
+      letter-spacing: 0.12em;
+      margin:70px 0;
     }
 
-    /* Secondary images (default constrained) */
+    /* IMAGES */
     .secondary-image{
-      margin: 60px 0 18px 0; /* tighter so fragment can sit right under */
+      margin: 60px 0 18px 0;
       text-align: center;
     }
 
     .secondary-image img{
-      max-width: 80%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      opacity: 1;
-      animation: fadeIn 2.4s ease;
+      display:block;
+      margin:0 auto;
+      width: 100%;
+      max-width: 820px;
+      height:auto;
+      border-radius: 14px;
+      opacity: 0.98;
     }
 
-    /* River: wide + softer */
     .secondary-image.lro-river{
       width: min(1200px, 94vw);
-      margin: 70px auto 18px auto; /* tighten bottom for fragment */
+      margin: 70px auto 18px auto;
     }
 
     .secondary-image.lro-river img{
       max-width: 100%;
       width: 100%;
       opacity: 0.92;
+      border-radius: 16px;
     }
 
-    /* Image fragment lines */
     .image-fragment{
       font-size: 0.9rem;
       letter-spacing: 0.08em;
@@ -181,15 +174,6 @@
       max-width: 600px;
       opacity: 0.75;
       text-align: center;
-    }
-
-    @keyframes fadeIn{
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .secondary-image img{ animation: none; }
     }
 
     .status{
@@ -208,10 +192,31 @@
       color:rgba(27,27,27,0.55);
     }
 
+    /* Scroll reveal (same as Upstate) */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     @media (max-width:760px){
       nav{ padding:0 16px; }
-      .secondary-image img{ max-width: 92%; }
       .secondary-image.lro-river{ width: 94vw; }
+      :root{ --nav-offset: 74px; }
     }
   </style>
 </head>
@@ -230,7 +235,7 @@
   <div class="hero" aria-hidden="true"></div>
 
   <header>
-    <div class="wrap">
+    <div class="wrap reveal">
       <h1>Le Rouge Originel</h1>
       <div class="meta">Feature Film · In Pre-Production · Summer 2026</div>
       <p class="thesis">
@@ -239,34 +244,35 @@
     </div>
   </header>
 
-  <!-- Wide river lives OUTSIDE wrap so it can be bigger -->
-  <div class="secondary-image lro-river">
-    <img src="ChatGPT Image Feb 21, 2026 at 06_59_10 PM.png" alt="Le Rouge Originel — river at dusk">
+  <!-- Wide river outside wrap -->
+  <div class="secondary-image lro-river reveal">
+    <img src="ChatGPT%20Image%20Feb%2021,%202026%20at%2006_59_10%20PM.png"
+         alt="Le Rouge Originel — river at dusk">
   </div>
-  <p class="image-fragment">observation becomes participation</p>
+  <p class="image-fragment reveal">observation becomes participation</p>
 
   <main class="wrap">
 
-    <div class="rule"></div>
+    <div class="rule reveal"></div>
 
-    <div class="manifesto">LOVE LED US TO ONE DEATH</div>
+    <div class="manifesto reveal">LOVE LED US TO ONE DEATH</div>
 
-    <div class="secondary-image">
-  <img src="lro-deer.png"
-       alt="Le Rouge Originel — deer in autumn">
-</div>
-    <p class="image-fragment">presence without intervention</p>
+    <div class="secondary-image reveal">
+      <img src="lro-deer.png"
+           alt="Le Rouge Originel — deer in autumn">
+    </div>
+    <p class="image-fragment reveal">presence without intervention</p>
 
-    <div class="rule"></div>
+    <div class="rule reveal"></div>
 
-    <p>
+    <p class="reveal">
       Influenced by Chantal Akerman, Michael Haneke, and Krzysztof Kieślowski,
       the film resists psychological explanation.
       Stillness replaces escalation. Silence replaces cueing.
       The camera does not align, console, or condemn.
     </p>
 
-    <div class="status">
+    <div class="status reveal">
       Casting Underway · Principal Photography Summer 2026
     </div>
 
@@ -277,6 +283,40 @@
       © 2026 Delfine Paolini / LRO Productions, LLC & Les Rouge Films
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const els = document.querySelectorAll('.reveal');
+
+      const prefersReduced =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
 
 </body>
 </html>
