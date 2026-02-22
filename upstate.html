@@ -198,6 +198,34 @@
       font-size:13px;
       color:rgba(23,23,23,0.55);
     }
+    footer{
+  margin-top:86px;
+  padding:54px 0 74px 0;
+  border-top:1px solid var(--rule);
+  font-size:13px;
+  color:rgba(23,23,23,0.55);
+}
+
+/* Subtle reveal on scroll */
+.reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
     @media (max-width:760px){
       nav{ padding:0 16px; }
