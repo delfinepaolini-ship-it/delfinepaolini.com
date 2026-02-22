@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bio — Delfine Paolini</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+      --nav-offset: 84px;
+    }
+
+    html{ scroll-behavior: smooth; }
+
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bone);
+      color: var(--charcoal);
+      padding-top: var(--nav-offset);
+    }
+
+    .wrap{
+      width:min(920px, 88vw);
+      margin:0 auto;
+    }
+
+    /* NAV */
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+    }
+
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(244,241,234,0.75);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(27,27,27,0.10);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color: var(--charcoal);
+      opacity: 0.9;
+    }
+
+    nav a:hover{ color: var(--wine); opacity: 1; }
+
+    header{
+      padding: 62px 0 22px 0;
+    }
+
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size: clamp(40px, 5vw, 58px);
+      margin: 0 0 12px 0;
+    }
+
+    .kicker{
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(27,27,27,0.62);
+      margin-bottom: 26px;
+    }
+
+    .rule{
+      height:1px;
+      background: var(--rule);
+      margin: 38px 0;
+    }
+
+    /* Bio layout */
+    .bio{
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 34px;
+      align-items: start;
+      padding-bottom: 70px;
+    }
+
+    .bio-photo{
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 16px;
+      display:block;
+      filter: contrast(1.02) saturate(0.98);
+      opacity: 0.98;
+    }
+
+    .bio p{
+      font-size: 16px;
+      line-height: 1.95;
+      margin: 0 0 18px 0;
+      color: rgba(27,27,27,0.92);
+    }
+
+    .bio p:last-child{ margin-bottom: 0; }
+
+    footer{
+      border-top: 1px solid var(--rule);
+      padding: 46px 0 60px 0;
+      color: rgba(27,27,27,0.55);
+      font-size: 13px;
+    }
+
+    /* Scroll reveal */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
+    .reveal.in{ opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (max-width: 900px){
+      .bio{ grid-template-columns: 1fr; }
+      .bio-photo{ width: min(420px, 92vw); margin: 0 auto; }
+    }
+
+    @media (max-width: 760px){
+      nav{ padding: 0 16px; }
+      :root{ --nav-offset: 74px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="bio.html">Bio</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="wrap reveal">
+    <h1>Delfine Paolini</h1>
+    <div class="kicker">Writer / Director / Producer · Visual Artist</div>
+  </header>
+
+  <main class="wrap">
+    <div class="rule reveal"></div>
+
+    <section class="bio" aria-label="Biography">
+      <img class="bio-photo reveal"
+           src="DB11B8EB-EC97-4230-BC65-8D63AEB09C03.PNG"
+           alt="Delfine Paolini">
+
+      <div class="reveal">
+        <p>
+          Delfine Paolini is a Bronx-based writer, director, and visual artist whose films explore thanatological themes through psychological realism and painterly imagery. Her work is defined by stillness, restraint, and close observation—stories that examine fragile interior lives and the moral consequences of love, loss, and survival.
+        </p>
+
+        <p>
+          Before filmmaking, Delfine came up through New York’s downtown arts and punk scenes as a photographer, apprenticing with legendary rock photographer Mick Rock. That early DIY ethos—resourceful, handmade, and fiercely independent—continues to shape her approach to cinema. She builds films the way she once built zines and photo series: intimate, tactile, and emotionally direct.
+        </p>
+
+        <p>
+          Her debut feature, <em>A Wonderful Way with Dragons</em>, was produced on a microbudget, won over 55 international awards, and successfully recouped its costs, establishing her as both a disciplined producer and a distinctive auteur voice in independent film.
+        </p>
+
+        <p>
+          She is the founder of LRO Productions, LLC &amp; Les Rouge Films, LLC, and is currently developing an interconnected slate of features including <em>Le Rouge Originel</em>, <em>Reds Hearten</em>, and <em>Sky, Zyprexa, Night</em>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Delfine Paolini</div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const els = document.querySelectorAll('.reveal');
+
+      const prefersReduced =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+</body>
+</html>
