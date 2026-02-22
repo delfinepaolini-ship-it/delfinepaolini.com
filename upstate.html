@@ -19,38 +19,13 @@
     }
 
     html{ scroll-behavior:smooth; }
-    <script>
-  (function () {
-    const els = document.querySelectorAll('.reveal');
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReduced) {
-      els.forEach(el => el.classList.add('in'));
-      return;
-    }
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -10% 0px'
-    });
-
-    els.forEach(el => io.observe(el));
-  })();
-</script>
 
     body{
       margin:0;
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--paper);
       color:var(--ink);
-      padding-top: 84px; /* gives room for fixed nav */
+      padding-top: 84px; /* room for fixed nav */
     }
 
     .wrap{
@@ -179,36 +154,19 @@
     }
 
     .image-block img{
-  display:block;
-  margin:0 auto;
-  width: 100%;
-  max-width: 860px;   /* match .wrap width */
-  height:auto;
-  border-radius: 14px;
-  opacity: 0.96;
-  filter: contrast(1.02) saturate(0.98);
-
+      display:block;
+      margin:0 auto;
+      width: 100%;
+      max-width: 860px;   /* match .wrap width */
+      height:auto;
+      border-radius: 14px;
+      opacity: 0.96;
+      filter: contrast(1.02) saturate(0.98);
     }
 
-    /* Fragment line under image */
-    .image-fragment{
-      margin: 14px auto 0 auto;
-      text-align:center;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(23,23,23,0.55);
-    }
-
-    .image-fragment em{
-      font-style: normal;
-      color: var(--blue);
-    }
-
-    /* Wide block */
+    /* Wide block (kept centered) */
     .image-block.wide{
-  margin: 74px auto;
-
+      margin: 74px auto;
     }
 
     .image-block.wide img{
@@ -223,34 +181,28 @@
       font-size:13px;
       color:rgba(23,23,23,0.55);
     }
-    footer{
-  margin-top:86px;
-  padding:54px 0 74px 0;
-  border-top:1px solid var(--rule);
-  font-size:13px;
-  color:rgba(23,23,23,0.55);
-}
 
-/* Subtle reveal on scroll */
-.reveal{
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 700ms ease, transform 700ms ease;
-  will-change: opacity, transform;
-}
+    /* Subtle reveal on scroll */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
 
-.reveal.in{
-  opacity: 1;
-  transform: translateY(0);
-}
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .reveal{
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
 
     @media (max-width:760px){
       nav{ padding:0 16px; }
@@ -274,7 +226,7 @@
   <div class="hero" aria-hidden="true"></div>
 
   <header>
-    <div class="wrap">
+    <div class="wrap reveal">
       <h1>Upstate</h1>
       <div class="meta">Feature Film · In Development</div>
       <p class="thesis">
@@ -285,36 +237,32 @@
 
   <main class="wrap">
 
-    <div class="rule"></div>
+    <div class="rule reveal"></div>
 
     <div class="core reveal">Love is a shadow</div>
 
-<div class="image-block reveal">
-  <img src="upstate-blue.jpg" alt="Upstate — interior witness">
-</div>
-      <!-- optional caption -->
-      <!-- <p class="image-fragment"><em>Blue</em> as witness.</p> -->
+    <!-- IMAGE 1 -->
+    <div class="image-block reveal">
+      <img src="upstate-blue.jpg" alt="Upstate — interior witness">
     </div>
 
-    <div class="core">How we cry after it</div>
+    <div class="core reveal">how we cry after it</div>
 
     <!-- IMAGE 2 -->
-    <div class="image-block">
+    <div class="image-block reveal">
       <img src="upstate-braid.jpg" alt="Upstate — braided hair">
-      <!-- <p class="image-fragment">A summer braid.</p> -->
     </div>
 
-    <div class="core">Listen: these are its hooves</div>
+    <div class="core reveal">Listen: these are its hooves</div>
 
-    <div class="rule"></div>
+    <div class="rule reveal"></div>
 
     <!-- IMAGE 3 -->
-    <div class="image-block wide">
+    <div class="image-block wide reveal">
       <img src="upstate-horse2.jpg" alt="Upstate — dissolving horse">
-      <!-- <p class="image-fragment">Dissolving motion.</p> -->
     </div>
 
-    <div class="core">It's gone off like a horse</div>
+    <div class="core reveal">It's gone off like a horse</div>
 
   </main>
 
@@ -323,6 +271,40 @@
       © 2026 Delfine Paolini / LRO Production, LLC & Les Rouge Films
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const els = document.querySelectorAll('.reveal');
+
+      const prefersReduced =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      els.forEach(el => io.observe(el));
+    });
+  </script>
 
 </body>
 </html>
