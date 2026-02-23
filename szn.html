@@ -6,222 +6,226 @@
 <title>Sky, Zyprexa, Night — Delfine Paolini</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
- 
+
 <style>
 :root{
-  --charcoal:#111111;
-  --ink:#F4F1EA;
-  --gold:#C9A86A;
-  --rule:rgba(244,241,234,0.12);
-  --overlay:rgba(0,0,0,0.55);
+  --bone:#F4F1EA;
+  --charcoal:#1B1B1B;
+  --wine:#6B1F1F;
+  --rule:rgba(27,27,27,0.12);
 }
 
 html{ scroll-behavior:smooth; }
 
 body{
   margin:0;
-  background:var(--charcoal);
-  color:var(--ink);
-  font-family:'Inter', sans-serif;
-  line-height:1.6;
+  background:var(--bone);
+  color:var(--charcoal);
+  font-family:'Inter', system-ui, sans-serif;
+  line-height:1.8;
 }
 
 img{ width:100%; display:block; }
 
-a{ color:inherit; text-decoration:none; }
+a{ text-decoration:none; color:inherit; }
 
-/* Top Navigation */
-.topbar{
-  position:sticky;
-  top:0;
-  background:rgba(17,17,17,0.85);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--rule);
+.wrap{
+  width:min(980px, 88vw);
+  margin:0 auto;
+}
+
+/* NAV (matches other pages) */
+nav{
+  position:fixed;
+  top:26px;
+  left:0;
+  right:0;
   z-index:50;
-}
-
-.topbar-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content:flex-end;
+  padding:0 56px;
 }
-
-.brand{
-  font-family:'Playfair Display', serif;
-  font-size:18px;
+nav .nav-inner{
+  display:flex;
+  gap:22px;
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  background:rgba(244,241,234,0.75);
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(27,27,27,0.10);
+  border-radius:999px;
+  padding:10px 14px;
 }
+nav a{ opacity:.9; }
+nav a:hover{ color:var(--wine); opacity:1; }
 
-.nav a{
-  margin-left:14px;
-  font-size:13px;
-  opacity:.85;
-}
-
-.nav a:hover{ opacity:1; }
-
+/* HERO IMAGE */
 .hero{
-  padding-top: 92px;
-  position: relative;
-}
-
-.hero img{
-  width: 100%;
-  height: 72vh;
-  object-fit: cover;
-  display: block;
-}
-
-/* subtle fade into bone */
-.hero::after{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(244,241,234,0) 0%, var(--bone) 100%);
-}
-
-.hero-content{
+  padding-top:92px;
   position:relative;
-  z-index:3;
-  max-width:1100px;
-  margin:0 auto;
-  padding:40px 18px 60px;
+}
+.hero img{
+  height:72vh;
+  object-fit:cover;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:120px;
+  background:linear-gradient(to bottom, rgba(244,241,234,0) 0%, var(--bone) 100%);
+  pointer-events:none;
 }
 
+/* TITLE BLOCK */
+header{
+  padding:60px 0 40px;
+  text-align:center;
+}
 .kicker{
   font-size:12px;
-  letter-spacing:.2em;
+  letter-spacing:1.6px;
   text-transform:uppercase;
-  color:var(--gold);
+  color:rgba(27,27,27,0.6);
   margin-bottom:12px;
 }
-
 h1{
   font-family:'Playfair Display', serif;
-  font-size:clamp(36px,5vw,60px);
-  margin:0 0 12px;
+  font-weight:400;
+  font-size:clamp(40px,5vw,58px);
+  margin:0 0 14px;
 }
-
 .logline{
-  font-size:clamp(16px,2vw,20px);
-  max-width:700px;
-}
-
-/* Sections */
-.section{
-  max-width:1100px;
+  font-size:16px;
+  max-width:760px;
   margin:0 auto;
-  padding:60px 18px;
-  border-bottom:1px solid var(--rule);
+  color:rgba(27,27,27,0.85);
 }
 
-.quote{
+/* SECTIONS */
+.section{
+  padding:60px 0;
+  border-top:1px solid var(--rule);
+}
+.pull{
   font-family:'Playfair Display', serif;
-  font-size:clamp(20px,2.4vw,28px);
-  margin-bottom:30px;
+  font-size:clamp(18px,2.2vw,24px);
+  line-height:1.55;
+  margin:0 0 24px;
+  max-width:820px;
 }
 
-/* Buttons */
+/* BUTTONS */
 .actions{
   margin-top:30px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
 }
-
-.btn{
-  display:inline-block;
-  padding:10px 16px;
-  border:1px solid var(--rule);
-  border-radius:999px;
-  font-size:13px;
-  margin-right:10px;
-}
-
-.btn:hover{
-  background:rgba(255,255,255,.05);
-}
-
-/* Footer */
-footer{
-  text-align:center;
-  padding:40px 18px;
+.enter{
+  text-transform:uppercase;
   font-size:12px;
-  opacity:.6;
+  letter-spacing:1.6px;
+  border-bottom:1px solid rgba(27,27,27,0.35);
+  padding-bottom:3px;
+}
+.enter:hover{
+  color:var(--wine);
+  border-bottom-color:rgba(107,31,31,0.55);
+}
+.link{
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  border:1px solid rgba(107,31,31,0.35);
+  border-radius:999px;
+  padding:8px 12px;
+  color:var(--wine);
+}
+.link:hover{
+  background:rgba(107,31,31,0.07);
+}
+
+footer{
+  border-top:1px solid var(--rule);
+  padding:50px 0 60px;
+  font-size:13px;
+  color:rgba(27,27,27,0.55);
+}
+
+@media (max-width:760px){
+  nav{ padding:0 16px; }
+  .hero img{ height:60vh; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="index.html">Delfine Paolini</a>
-    <div class="nav">
-      <a href="films.html">Films</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#about">About</a>
+    <a href="films.html">Films</a>
+    <a href="index.html#current">Current</a>
+    <a href="index.html#contact">Contact</a>
   </div>
-</div>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <img src="szn-hero2.jpg" alt="Sky, Zyprexa, Night — hero image">
-  <div class="hero-content">
-    <div class="kicker">Feature · In Development</div>
-    <h1>Sky, Zyprexa, Night</h1>
-    <p class="logline">
-      A woman and her grandchildren chase salvation across upstate New York, summer 1993.
+<div class="hero">
+  <img src="szn-hero2.jpg" alt="Traveling tent revival at night">
+</div>
+
+<!-- TITLE -->
+<header class="wrap">
+  <p class="kicker">Feature · In Development</p>
+  <h1>Sky, Zyprexa, Night</h1>
+  <p class="logline">
+    A woman and her grandchildren chase salvation across upstate New York, summer 1993.
+  </p>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <p class="pull">
+      Between diagnosis and deliverance, reality begins to blur.
     </p>
-  </div>
-</section>
+    <img src="szn-fire.jpg" alt="Fire at night">
+  </section>
 
-<!-- Swing -->
-<section class="section">
-  <p class="quote">
-    Between diagnosis and deliverance, reality begins to blur.
-  </p>
-  <img src="szn-swing.png" alt="">
-</section>
+  <section class="section">
+    <img src="szn-revival-wide.png" alt="Revival crowd">
+  </section>
 
-<!-- Revival Wide -->
-<section class="section">
-  <img src="szn-revival-wide.png" alt="">
-</section>
+  <section class="section">
+    <img src="szn-healing.png" alt="Healing moment">
+  </section>
 
-<!-- Healing -->
-<section class="section">
-  <img src="szn-healing.png" alt="">
-</section>
+  <section class="section">
+    <img src="szn-revival-group.png" alt="Revival intensity">
+  </section>
 
-<!-- Group -->
-<section class="section">
-  <img src="szn-revival-group.png" alt="">
-</section>
+  <section class="section">
+    <p class="pull">
+      When healing becomes spectacle, what does it cost to believe?
+    </p>
 
-<!-- Final -->
-<section class="section">
-  <p class="quote">
-    When healing becomes spectacle, what does it cost to believe?
-  </p>
-  <img src="szn-hands.png" alt="">
-  
-  <div class="actions">
-    <a class="btn" href="https://deadline.com/2025/10/casey-likes-delfine-paolinis-sky-zyprexa-night-1236568756/" target="_blank">Press</a>
-    <a class="btn" href="index.html#contact">Request materials</a>
-    <a class="btn" href="films.html">Back to films</a>
-  </div>
-</section>
+    <div class="actions">
+      <a class="enter" href="films.html">Back to Films</a>
+      <a class="link" href="https://deadline.com/2025/10/casey-likes-delfine-paolinis-sky-zyprexa-night-1236568756/" target="_blank">Press</a>
+      <a class="link" href="index.html#contact">Request materials</a>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-© <span id="year"></span> Delfine Paolini
+  <div class="wrap">© 2026 Delfine Paolini</div>
 </footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
