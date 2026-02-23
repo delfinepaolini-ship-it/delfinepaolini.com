@@ -208,6 +208,16 @@
       .image-block{ margin: 46px 0; }
       :root{ --nav-offset: 74px; }
     }
+    /* Subtle still hover (cinematic breathing) */
+.image-block img{
+  transition: transform 700ms ease, opacity 700ms ease;
+  transform-origin: center;
+}
+
+.image-block:hover img{
+  transform: scale(1.018);
+  opacity: 0.985;
+}
   </style>
 </head>
 
