@@ -12,6 +12,7 @@
       --bone:#F4F1EA;
       --charcoal:#1B1B1B;
       --wine:#6B1F1F;
+      --rule: rgba(244,241,234,0.12);
     }
 
     html{ scroll-behavior: smooth; }
@@ -23,79 +24,98 @@
       color: rgba(244,241,234,0.92);
     }
 
-    /* Page */
-    .film-page.reds-hearten{
-      min-height: 100vh;
-      padding: 110px 0 90px 0;
+    /* NAV (site continuity on dark bg) */
+    nav{
+      position: fixed;
+      top: 26px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex;
+      justify-content: flex-end;
+      padding: 0 56px;
+    }
+    nav .nav-inner{
+      display:flex;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(15,17,18,0.68);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(244,241,234,0.14);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    nav a{
+      text-decoration:none;
+      color: rgba(244,241,234,0.90);
+      opacity: 0.9;
+    }
+    nav a:hover{ color: rgba(201,168,106,0.95); opacity: 1; }
+
+    .wrap{
+      width:min(980px, 88vw);
+      margin:0 auto;
     }
 
-    .film-header{
-      width: min(980px, 90%);
-      margin: 0 auto;
+    /* Page */
+    .film-page{
+      min-height: 100vh;
+      padding: 120px 0 90px 0;
     }
 
     .film-title{
-  margin: 0 0 22px 0;
-  font-size: 12px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
+      margin: 0 0 14px 0;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      opacity: 0.7;
     }
 
-   .core{
-  font-family:'Playfair Display', serif;
-  font-weight: 400;
-  font-size: clamp(2.15rem, 4vw, 3.4rem);
-  line-height: 1.06;
-  letter-spacing: 0.02em;
-  max-width: 18ch;
-  margin: 0;
-  text-transform: uppercase;
-  opacity: 0.96;
-  text-shadow: 0 1px 18px rgba(0,0,0,0.35);
-}
+    .poem{
+      font-family:'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      letter-spacing: 0.01em;
+      opacity: 0.92;
+      margin: 0 0 26px 0;
+    }
 
-   .hero-image{
-  width: min(980px, 92%);
-  margin: 60px auto 0 auto;
-  text-align: center;
-}
-
+    .hero-image{
+      margin: 46px auto 0 auto;
+    }
     .hero-image img{
       width: 100%;
       height: auto;
       display: block;
       border-radius: 2px;
       opacity: 1;
-      animation: fadeIn 2.4s ease;
+      animation: fadeIn 2.2s ease;
+      border: 1px solid rgba(244,241,234,0.08);
     }
 
-    .mythic-manifesto{
-      width: min(760px, 90%);
-      margin: 50px auto 0 auto;
+    .mythic{
+      width: min(760px, 92%);
+      margin: 36px 0 0 0;
       font-size: 1.05rem;
       line-height: 1.8;
       opacity: 0.92;
     }
-
-   .poem{
-  font-family:'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.85;
-  letter-spacing: 0.01em;
-  opacity: 0.92;
-  margin: 0 0 26px 0;
-}
-
-    .mythic-manifesto p{
-      margin: 0 0 18px 0;
-    }
+    .mythic p{ margin: 0 0 18px 0; }
 
     em{
       font-style: italic;
       color: rgba(244,241,234,0.96);
+    }
+
+    footer{
+      border-top: 1px solid rgba(244,241,234,0.12);
+      padding: 46px 0 60px 0;
+      color: rgba(244,241,234,0.55);
+      font-size: 13px;
+      margin-top: 70px;
     }
 
     @keyframes fadeIn{
@@ -104,47 +124,55 @@
     }
 
     @media (max-width: 760px){
-      .film-page.reds-hearten{ padding: 90px 0 70px 0; }
-      .hero-image{ margin-top: 40px; }
+      nav{ padding: 0 16px; }
+      .film-page{ padding: 100px 0 70px 0; }
+      .hero-image{ margin-top: 34px; }
     }
   </style>
 </head>
 
 <body>
-  <section class="film-page reds-hearten">
-
-    <header class="film-header">
-      <h1 class="film-title">REDS HEARTEN</h1>
-      
-    </header>
-
- <div class="mythic-manifesto">
-
-  <p class="poem">
-    These are not words I know<br>
-    they are only ways of knowing<br>
-    what words<br>
-    for the sense of you asleep.
-  </p>
-
-</div>
-
-<div class="hero-image">
-  <img src="rh-hero.png" alt="Reds Hearten — underworld passage">
-</div>
-
-<div class="mythic-manifesto">
-  <p>
-    Conceived as a companion to <em>Le Rouge Originel</em>, <em>Reds Hearten</em> widens the descent —
-    into rupture, repetition, and the architecture of atonement.
-  </p>      
-
-      <p>
-        If <em>Le Rouge Originel</em> asks how a person becomes capable of sin,
-        <em>Reds Hearten</em> asks what it costs to survive that capability.
-      </p>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html#about">About</a>
+      <a href="films.html">Films</a>
+      <a href="index.html#current">Current</a>
+      <a href="index.html#contact">Contact</a>
     </div>
+  </nav>
 
+  <section class="film-page">
+    <div class="wrap">
+      <h1 class="film-title">REDS HEARTEN</h1>
+
+      <div class="mythic">
+        <p class="poem">
+          These are not words I know<br>
+          they are only ways of knowing<br>
+          what words<br>
+          for the sense of you asleep.
+        </p>
+      </div>
+
+      <div class="hero-image">
+        <img src="rh-hero.png" alt="Reds Hearten — underworld passage">
+      </div>
+
+      <div class="mythic">
+        <p>
+          Conceived as a companion to <em>Le Rouge Originel</em>, <em>Reds Hearten</em> widens the descent —
+          into rupture, repetition, and the architecture of atonement.
+        </p>
+        <p>
+          If <em>Le Rouge Originel</em> asks how a person becomes capable of sin,
+          <em>Reds Hearten</em> asks what it costs to survive that capability.
+        </p>
+      </div>
+
+      <footer>
+        © 2026 Delfine Paolini
+      </footer>
+    </div>
   </section>
 </body>
 </html>
