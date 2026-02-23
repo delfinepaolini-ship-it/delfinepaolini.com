@@ -170,6 +170,18 @@
       .two-up{ grid-template-columns: 1fr; }
       .two-up img{ height: 220px; }
     }
+    /* Subtle still hover (cinematic breathing) */
+.two-up img,
+.img-block img{
+  transition: transform 700ms ease, opacity 700ms ease;
+  transform-origin: center;
+}
+
+.two-up img:hover,
+.img-block:hover img{
+  transform: scale(1.018);
+  opacity: 0.985;
+}
   </style>
 </head>
 
