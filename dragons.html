@@ -168,11 +168,14 @@
       margin-top: 60px;
     }
 
-    @media (max-width: 760px){
-      nav{ padding: 0 16px; }
-      .hero{ height: 60vh; min-height: 420px; }
-      .two-up{ grid-template-columns: 1fr; }
-      .two-up img{ height: 220px; }
+   @media (max-width: 760px){
+  nav{ padding: 0 16px; }
+  :root{ --nav-offset: 74px; }
+
+  .hero{ height: 60vh; min-height: 420px; }
+  .two-up{ grid-template-columns: 1fr; }
+  .two-up img{ height: 220px; }
+}
     }
     /* Subtle still hover (cinematic breathing) */
 .two-up img,
