@@ -221,6 +221,16 @@
       :root{ --nav-offset: 74px; }
       .lro-grid{ grid-template-columns: 1fr; }
     }
+    /* Subtle still hover (cinematic breathing) */
+.lro-frame img{
+  transition: transform 700ms ease, opacity 700ms ease;
+  transform-origin: center;
+}
+
+.lro-frame:hover img{
+  transform: scale(1.018);
+  opacity: 0.985;
+}
   </style>
 </head>
 
