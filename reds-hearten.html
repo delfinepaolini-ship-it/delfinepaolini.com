@@ -137,7 +137,17 @@ footer{
   font-size: 13px;
   margin-top: 70px;
 }
-    }
+    
+    /* Subtle still hover (cinematic breathing) */
+.hero-image img{
+  transition: transform 900ms ease, opacity 900ms ease;
+  transform-origin: center;
+}
+
+.hero-image:hover img{
+  transform: scale(1.012);
+  opacity: 0.99;
+}
   </style>
 </head>
 
