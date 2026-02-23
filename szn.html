@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky, Zyprexa, Night — Delfine Paolini</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --charcoal:#111111;
+  --ink:#F4F1EA;
+  --gold:#C9A86A;
+  --rule:rgba(244,241,234,0.12);
+  --overlay:rgba(0,0,0,0.55);
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--charcoal);
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+  line-height:1.6;
+}
+
+img{ width:100%; display:block; }
+
+a{ color:inherit; text-decoration:none; }
+
+/* Top Navigation */
+.topbar{
+  position:sticky;
+  top:0;
+  background:rgba(17,17,17,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+  z-index:50;
+}
+
+.topbar-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+}
+
+.nav a{
+  margin-left:14px;
+  font-size:13px;
+  opacity:.85;
+}
+
+.nav a:hover{ opacity:1; }
+
+/* Hero */
+.hero{
+  position:relative;
+  min-height:80vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+.hero img{
+  position:absolute;
+  inset:0;
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, var(--overlay) 0%, rgba(0,0,0,.25) 60%);
+  z-index:2;
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 18px 60px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+
+h1{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(36px,5vw,60px);
+  margin:0 0 12px;
+}
+
+.logline{
+  font-size:clamp(16px,2vw,20px);
+  max-width:700px;
+}
+
+/* Sections */
+.section{
+  max-width:1100px;
+  margin:0 auto;
+  padding:60px 18px;
+  border-bottom:1px solid var(--rule);
+}
+
+.quote{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(20px,2.4vw,28px);
+  margin-bottom:30px;
+}
+
+/* Buttons */
+.actions{
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border:1px solid var(--rule);
+  border-radius:999px;
+  font-size:13px;
+  margin-right:10px;
+}
+
+.btn:hover{
+  background:rgba(255,255,255,.05);
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:40px 18px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">Delfine Paolini</a>
+    <div class="nav">
+      <a href="films.html">Films</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="szn-hero.png" alt="">
+  <div class="hero-content">
+    <div class="kicker">Feature · In Development</div>
+    <h1>Sky, Zyprexa, Night</h1>
+    <p class="logline">
+      A woman and her grandchildren chase salvation across upstate New York, summer 1993.
+    </p>
+  </div>
+</section>
+
+<!-- Swing -->
+<section class="section">
+  <p class="quote">
+    Between diagnosis and deliverance, reality begins to blur.
+  </p>
+  <img src="szn-swing.png" alt="">
+</section>
+
+<!-- Revival Wide -->
+<section class="section">
+  <img src="szn-revival-wide.png" alt="">
+</section>
+
+<!-- Healing -->
+<section class="section">
+  <img src="szn-healing.png" alt="">
+</section>
+
+<!-- Group -->
+<section class="section">
+  <img src="szn-revival-group.png" alt="">
+</section>
+
+<!-- Final -->
+<section class="section">
+  <p class="quote">
+    When healing becomes spectacle, what does it cost to believe?
+  </p>
+  <img src="szn-hands.png" alt="">
+  
+  <div class="actions">
+    <a class="btn" href="https://deadline.com/2025/10/casey-likes-delfine-paolinis-sky-zyprexa-night-1236568756/" target="_blank">Press</a>
+    <a class="btn" href="index.html#contact">Request materials</a>
+    <a class="btn" href="films.html">Back to films</a>
+  </div>
+</section>
+
+<footer>
+© <span id="year"></span> Delfine Paolini
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
