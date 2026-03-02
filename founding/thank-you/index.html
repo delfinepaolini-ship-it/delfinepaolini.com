@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Founding Circle</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+    }
+    body{
+      margin:0;
+      background:var(--bone);
+      color:var(--charcoal);
+      font-family:'Inter', system-ui, -apple-system, sans-serif;
+      line-height:1.6;
+    }
+    .wrap{
+      width:min(760px, 88vw);
+      margin:0 auto;
+      padding:120px 0 90px 0;
+    }
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size:38px;
+      margin:0 0 18px 0;
+    }
+    p{ margin:0 0 18px 0; font-size:16px; max-width:620px; }
+    form{
+      margin-top:34px;
+      border-top:1px solid var(--rule);
+      padding-top:28px;
+      max-width:620px;
+    }
+    label{
+      display:block;
+      font-size:13px;
+      letter-spacing:0.3px;
+      color:rgba(27,27,27,0.75);
+      margin:18px 0 8px 0;
+    }
+    input, select, textarea{
+      width:100%;
+      box-sizing:border-box;
+      padding:12px 12px;
+      border:1px solid rgba(27,27,27,0.18);
+      background:rgba(255,255,255,0.55);
+      color:var(--charcoal);
+      font-size:15px;
+      outline:none;
+    }
+    textarea{ resize:vertical; min-height:110px; }
+    .btn{
+      display:inline-block;
+      margin-top:22px;
+      padding:12px 22px;
+      border:1px solid var(--wine);
+      color:var(--wine);
+      background:transparent;
+      font-size:14px;
+      letter-spacing:0.5px;
+      cursor:pointer;
+      transition:all 0.2s ease;
+    }
+    .btn:hover{ background:var(--wine); color:var(--bone); }
+    .small{
+      margin-top:18px;
+      font-size:13px;
+      color:rgba(27,27,27,0.6);
+      max-width:620px;
+    }
+    a{ color:var(--wine); }
+  </style>
+</head>
+<body>
+  <section class="wrap">
+    <h1>Thank you.</h1>
+    <p>
+      I’m grateful you’ve joined the Founding Circle of <em>Le Rouge Originel</em>.
+      Please confirm the details below so I can credit you correctly and send any physical pieces.
+    </p>
+
+    <!-- Netlify Form -->
+    <form name="founding-circle" method="POST" data-netlify="true" action="/founding/thank-you/">
+      <input type="hidden" name="form-name" value="founding-circle" />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="credit_name">Name (as you’d like it credited)</label>
+      <input id="credit_name" name="credit_name" type="text" required />
+
+      <label for="tier">Tier selected</label>
+      <select id="tier" name="tier" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="$150 — Witness">$150 — Witness</option>
+        <option value="$500 — Companion">$500 — Companion</option>
+        <option value="$1,000 — Patron">$1,000 — Patron</option>
+        <option value="$2,500 — Founding Patron">$2,500 — Founding Patron</option>
+      </select>
+
+      <label for="mailing_address">Mailing address</label>
+      <textarea id="mailing_address" name="mailing_address" required></textarea>
+
+      <label for="note">Optional message</label>
+      <textarea id="note" name="note"></textarea>
+
+      <button class="btn" type="submit">Confirm</button>
+    </form>
+
+    <p class="small">
+      If you have any questions, you can reach me at <a href="mailto:delfine@delfinepaolini.com">delfine@delfinepaolini.com</a>.
+    </p>
+  </section>
+</body>
+</html>
