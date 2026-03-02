@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founding Circle — Le Rouge Originel</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bone:#F4F1EA;
+      --charcoal:#1B1B1B;
+      --wine:#6B1F1F;
+      --rule: rgba(27,27,27,0.12);
+    }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      background:var(--bone);
+      color:var(--charcoal);
+      font-family:'Inter', system-ui, -apple-system, sans-serif;
+      line-height:1.6;
+    }
+
+    .wrap{
+      width:min(860px, 88vw);
+      margin:0 auto;
+      padding:120px 0 100px 0;
+    }
+
+    h1{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size:42px;
+      margin:0 0 24px 0;
+    }
+
+    h2{
+      font-family:'Playfair Display', serif;
+      font-weight:400;
+      font-size:26px;
+      margin:0 0 12px 0;
+    }
+
+    p{
+      font-size:16px;
+      margin:0 0 18px 0;
+    }
+
+    .intro{
+      max-width:620px;
+      margin-bottom:70px;
+    }
+
+    .tier{
+      border-top:1px solid var(--rule);
+      padding:40px 0;
+    }
+
+    .price{
+      font-size:18px;
+      color:var(--wine);
+      margin-bottom:12px;
+    }
+
+    ul{
+      padding-left:18px;
+      margin:16px 0;
+    }
+
+    li{
+      margin-bottom:8px;
+    }
+
+    .button{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 26px;
+      border:1px solid var(--wine);
+      color:var(--wine);
+      text-decoration:none;
+      font-size:14px;
+      letter-spacing:0.5px;
+      transition:all 0.2s ease;
+    }
+
+    .button:hover{
+      background:var(--wine);
+      color:var(--bone);
+    }
+
+    .note{
+      font-size:14px;
+      color:rgba(27,27,27,0.6);
+      margin-top:60px;
+      max-width:600px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section class="wrap">
+
+    <h1>Founding Circle</h1>
+
+    <div class="intro">
+      <p>
+        Le Rouge Originel is sustained by a small circle of individuals who believe in intimate cinema and moral inquiry.
+      </p>
+      <p>
+        This invitation is extended quietly. The Founding Circle supports the making of a chamber film shaped by restraint, consequence, and interior life.
+      </p>
+      <p>
+        Participation is limited and offered with gratitude.
+      </p>
+    </div>
+
+    <!-- $150 -->
+    <div class="tier">
+      <h2>Witness</h2>
+      <div class="price">$150</div>
+
+      <ul>
+        <li>Name listed on private Founding Circle page</li>
+        <li>Quarterly production letters</li>
+        <li>Private digital still from the film</li>
+        <li>Access to pre-release screening window</li>
+      </ul>
+
+      <a href="YOUR_STRIPE_LINK_150" class="button">Join as Witness</a>
+    </div>
+
+    <!-- $500 -->
+    <div class="tier">
+      <h2>Companion</h2>
+      <div class="price">$500</div>
+
+      <ul>
+        <li>All Witness benefits</li>
+        <li>Invitation to virtual table read</li>
+        <li>Early script access (private PDF)</li>
+        <li>Signed printed still</li>
+        <li>Website Special Thanks</li>
+      </ul>
+
+      <a href="YOUR_STRIPE_LINK_500" class="button">Join as Companion</a>
+    </div>
+
+    <!-- $1000 -->
+    <div class="tier">
+      <h2>Patron</h2>
+      <div class="price">$1,000</div>
+
+      <ul>
+        <li>All Companion benefits</li>
+        <li>On-screen Special Thanks credit</li>
+        <li>Private rough-cut screening discussion</li>
+        <li>Premiere reception invitation</li>
+      </ul>
+
+      <a href="YOUR_STRIPE_LINK_1000" class="button">Join as Patron</a>
+    </div>
+
+    <!-- $2500 -->
+    <div class="tier">
+      <h2>Founding Patron</h2>
+      <div class="price">$2,500</div>
+
+      <ul>
+        <li>Prominent on-screen Founding Patron credit</li>
+        <li>Private post-premiere conversation</li>
+        <li>Premiere priority access</li>
+        <li>Signed, numbered archival still</li>
+        <li>Invitation to pre-production salon</li>
+        <li>Handwritten note</li>
+      </ul>
+
+      <a href="YOUR_STRIPE_LINK_2500" class="button">Become a Founding Patron</a>
+    </div>
+
+    <div class="note">
+      The Founding Circle is limited. Participation supports the independent production of Le Rouge Originel and includes no financial return or ownership interest.
+    </div>
+
+  </section>
+
+</body>
+</html>
