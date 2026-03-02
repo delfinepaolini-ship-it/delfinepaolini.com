@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/founding/*"
+  [headers.values]
+    Basic-Auth = "founding:quietcircle2026"
