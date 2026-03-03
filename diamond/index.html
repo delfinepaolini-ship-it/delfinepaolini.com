@@ -14,118 +14,135 @@
       --wine:#6B1F1F;
       --rule: rgba(27,27,27,0.12);
     }
+
     body{
       margin:0;
       background:var(--bone);
       color:var(--charcoal);
       font-family:'Inter', system-ui, -apple-system, sans-serif;
-      line-height:1.6;
+      line-height:1.7;
     }
+
     .wrap{
-      width:min(860px, 88vw);
+      width:min(760px, 88vw);
       margin:0 auto;
       padding:120px 0 100px 0;
     }
+
     h1{
       font-family:'Playfair Display', serif;
       font-weight:400;
-      font-size:42px;
-      margin:0 0 18px 0;
+      font-size:40px;
+      margin:0 0 26px 0;
     }
-    .sub{
-      max-width:680px;
+
+    .intro{
+      max-width:620px;
       font-size:16px;
-      margin:0 0 34px 0;
+      margin-bottom:54px;
     }
+
     .tier{
       border-top:1px solid var(--rule);
-      padding:40px 0;
+      padding:48px 0;
     }
-    h2{
+
+    .amount{
       font-family:'Playfair Display', serif;
-      font-weight:400;
-      font-size:26px;
-      margin:0 0 10px 0;
+      font-size:28px;
+      margin-bottom:20px;
     }
-    .price{
-      font-size:18px;
-      color:var(--wine);
-      margin-bottom:12px;
+
+    .tier p{
+      margin:0 0 8px 0;
+      font-size:15px;
     }
-    ul{ padding-left:18px; margin:16px 0; }
-    li{ margin-bottom:8px; }
+
+    .limit{
+      margin-top:18px;
+      font-size:14px;
+      color:rgba(27,27,27,0.65);
+    }
+
     .button{
       display:inline-block;
-      margin-top:18px;
+      margin-top:24px;
       padding:12px 26px;
-      border:1px solid var(--wine);
-      color:var(--wine);
+      border:1px solid var(--charcoal);
+      color:var(--charcoal);
       text-decoration:none;
-      font-size:14px;
+      font-size:13px;
       letter-spacing:0.5px;
       transition:all 0.2s ease;
     }
-    .button:hover{ background:var(--wine); color:var(--bone); }
-    .note{
-      margin-top:54px;
-      font-size:13px;
-      color:rgba(27,27,27,0.62);
-      max-width:720px;
+
+    .button:hover{
+      background:var(--charcoal);
+      color:var(--bone);
+    }
+
+    .footer{
       border-top:1px solid var(--rule);
-      padding-top:18px;
+      padding-top:36px;
+      margin-top:70px;
+      font-size:14px;
+      color:rgba(27,27,27,0.65);
+    }
+
+    a{
+      color:var(--charcoal);
     }
   </style>
 </head>
+
 <body>
   <section class="wrap">
+
     <h1>Diamond Circle</h1>
 
-    <p class="sub">
-      This page is reserved for a small group of principal patrons supporting the production of <em>Le Rouge Originel</em>.
-      Participation here is quiet and limited—designed for those who wish to underwrite the film at a meaningful level and receive a deeper window into the process.
-    </p>
-
-    <div class="tier">
-      <h2>Diamond Patron</h2>
-      <div class="price">$5,000</div>
-      <ul>
-        <li>Prominent on-screen recognition (Diamond Circle)</li>
-        <li>Private quarterly production letters + priority updates</li>
-        <li>Invitation to private rough-cut screening + discussion</li>
-        <li>Premiere priority access (ticket only)</li>
-        <li>Signed, numbered archival still (limited edition)</li>
-      </ul>
-      <a class="button" href="YOUR_STRIPE_LINK_5000">Join at $5,000</a>
+    <div class="intro">
+      <p>This page is reserved for a small group of principal patrons supporting the production of <em>Le Rouge Originel</em>.</p>
+      <p>Participation at this level reflects a decision to underwrite the work at scale.</p>
+      <p>There is no financial return.</p>
     </div>
 
     <div class="tier">
-      <h2>Diamond Principal</h2>
-      <div class="price">$10,000</div>
-      <ul>
-        <li>All $5,000 benefits</li>
-        <li>Invitation to an intimate pre-production salon (small group)</li>
-        <li>Private post-premiere conversation with Delfine</li>
-        <li>Early access to select materials (private / watermarked)</li>
-      </ul>
-      <a class="button" href="YOUR_STRIPE_LINK_10000">Join at $10,000</a>
+      <div class="amount">$5,000</div>
+      <p>On-screen recognition.</p>
+      <p>Private production correspondence.</p>
+      <p>Invitation to a private rough-cut screening discussion.</p>
+      <p>Premiere access.</p>
+      <p>Signed archival still.</p>
+      <div class="limit">Up to five patrons at this level.</div>
+      <a href="YOUR_STRIPE_LINK_5000" class="button">Participate</a>
     </div>
 
     <div class="tier">
-      <h2>Diamond Underwriter</h2>
-      <div class="price">$15,000</div>
-      <ul>
-        <li>All $10,000 benefits</li>
-        <li>Underwriter recognition (highest tier within Diamond Circle)</li>
-        <li>Invitation for two to premiere priority access (ticket only)</li>
-        <li>A private creative/producing conversation (timed by mutual availability)</li>
-      </ul>
-      <a class="button" href="YOUR_STRIPE_LINK_15000">Join at $15,000</a>
+      <div class="amount">$10,000</div>
+      <p>On-screen recognition.</p>
+      <p>All of the above.</p>
+      <p>Invitation to a pre-production salon.</p>
+      <p>One private creative discussion.</p>
+      <p>Early access to selected materials.</p>
+      <div class="limit">Up to three patrons at this level.</div>
+      <a href="YOUR_STRIPE_LINK_10000" class="button">Participate</a>
     </div>
 
-    <div class="note">
-      Participation includes no financial return or ownership interest. This is patronage in support of independent cinema.
-      For questions or alternative arrangements, email <a href="mailto:delfine@delfinepaolini.com" style="color:var(--wine);">delfine@delfinepaolini.com</a>.
+    <div class="tier">
+      <div class="amount">$15,000</div>
+      <p>On-screen recognition.</p>
+      <p>All of the above.</p>
+      <p>Premiere priority access for two.</p>
+      <p>Private production briefing during post.</p>
+      <p>Signed, numbered archival still.</p>
+      <div class="limit">Up to two patrons at this level.</div>
+      <a href="YOUR_STRIPE_LINK_15000" class="button">Participate</a>
     </div>
+
+    <div class="footer">
+      <p>For private arrangements: <a href="mailto:delfine@delfinepaolini.com">delfine@delfinepaolini.com</a></p>
+    </div>
+
   </section>
 </body>
 </html>
