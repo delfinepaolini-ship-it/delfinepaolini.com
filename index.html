@@ -13,274 +13,341 @@
       --bone:#F4F1EA;
       --charcoal:#1B1B1B;
       --wine:#6B1F1F;
-      --rule: rgba(27,27,27,0.12);
-      --surface: rgba(255,255,255,0.35);
+      --rule:rgba(27,27,27,0.12);
+      --surface:rgba(255,255,255,0.35);
     }
 
-    html { scroll-behavior: smooth; }
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       margin:0;
       font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--bone);
       color:var(--charcoal);
-      opacity: 0;
-      animation: pageIn 520ms ease forwards;
+      opacity:0;
+      animation:pageIn 520ms ease forwards;
     }
+
     /* Subtle film grain overlay */
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1000;
-  opacity: 0.045; /* adjust between 0.03 – 0.06 if desired */
-  mix-blend-mode: multiply;
-  background-image:
-    radial-gradient(rgba(0,0,0,0.35) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,0.25) 1px, transparent 1px);
-  background-size: 3px 3px, 4px 4px;
-  background-position: 0 0, 1px 1px;
-}
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1000;
+      opacity:0.045;
+      mix-blend-mode:multiply;
+      background-image:
+        radial-gradient(rgba(0,0,0,0.35) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.25) 1px, transparent 1px);
+      background-size:3px 3px, 4px 4px;
+      background-position:0 0, 1px 1px;
+    }
 
     /* Page transitions */
-    @keyframes pageIn { to { opacity: 1; } }
-    .page-out { opacity: 0; transition: opacity 280ms ease; }
+    @keyframes pageIn{
+      to{
+        opacity:1;
+      }
+    }
 
-    a{ color: inherit; text-decoration: none; }
+    .page-out{
+      opacity:0;
+      transition:opacity 280ms ease;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
     /* NAV */
     nav{
-      position: fixed;
-      top: 26px;
-      left: 0;
-      right: 0;
-      z-index: 50;
+      position:fixed;
+      top:26px;
+      left:0;
+      right:0;
+      z-index:50;
       display:flex;
-      justify-content: flex-end;
-      padding: 0 56px;
-      pointer-events: none;
+      justify-content:flex-end;
+      padding:0 56px;
+      pointer-events:none;
     }
 
     nav .nav-inner{
-      pointer-events: auto;
+      pointer-events:auto;
       display:flex;
-      gap: 22px;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      background: rgba(244,241,234,0.78);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(27,27,27,0.10);
-      border-radius: 999px;
-      padding: 10px 14px;
+      gap:22px;
+      font-size:12px;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      background:rgba(244,241,234,0.78);
+      -webkit-backdrop-filter:blur(8px);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(27,27,27,0.10);
+      border-radius:999px;
+      padding:10px 14px;
     }
 
     nav a{
-      color: var(--charcoal);
-      opacity: 0.92;
-      position: relative;
-      padding: 2px 2px;
+      color:var(--charcoal);
+      opacity:0.92;
+      position:relative;
+      padding:2px 2px;
     }
 
     nav a:hover{
-      color: var(--wine);
-      opacity: 1;
+      color:var(--wine);
+      opacity:1;
     }
 
     /* Active tab */
     nav a[aria-current="page"]{
-      color: var(--wine);
-      opacity: 1;
+      color:var(--wine);
+      opacity:1;
     }
+
     nav a[aria-current="page"]::after{
       content:"";
       position:absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 1px;
-      background: rgba(107,31,31,0.45);
+      left:0;
+      right:0;
+      bottom:-6px;
+      height:1px;
+      background:rgba(107,31,31,0.45);
     }
 
-    .wrap{ width:min(980px, 88vw); margin:0 auto; }
+    .wrap{
+      width:min(980px, 88vw);
+      margin:0 auto;
+    }
 
     /* HERO */
     .hero{
-      min-height: 54vh;
+      min-height:54vh;
       display:flex;
       align-items:center;
-      padding-top: 96px;
-      padding-bottom: 26px;
+      padding-top:96px;
+      padding-bottom:26px;
     }
 
     .hero h1{
       font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(44px, 6vw, 66px);
-      margin: 0 0 14px 0;
-      letter-spacing: -0.2px; /* tighter / more European */
+      font-weight:400;
+      font-size:clamp(44px, 6vw, 66px);
+      margin:0 0 14px 0;
+      letter-spacing:-0.2px;
     }
 
     .hero .role{
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(27,27,27,0.70);
-      margin-bottom: 18px;
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:rgba(27,27,27,0.70);
+      margin-bottom:18px;
     }
 
     .hero .thesis{
-      font-size: 18px;
-      line-height: 1.78;
-      max-width: 700px;
-      margin: 0;
-      color: rgba(27,27,27,0.90);
+      font-size:18px;
+      line-height:1.78;
+      max-width:700px;
+      margin:0;
+      color:rgba(27,27,27,0.90);
     }
 
     .hero .thesis em{
-      font-style: normal;
-      color: var(--wine);
+      font-style:normal;
+      color:var(--wine);
     }
 
     /* IMAGE FIELD */
     .field{
-      position: relative;
-      height: 68vh;
-      min-height: 520px;
-      margin-top: -64px;
-      border-bottom: 1px solid var(--rule);
-      overflow: hidden;
-      background-image: url('1B7B1DA9-BF29-4C34-BC3F-469A9D751613.JPG');
-      background-size: cover;
-      background-position: center;
-      filter: saturate(0.78) contrast(1.06);
+      position:relative;
+      height:68vh;
+      min-height:520px;
+      margin-top:-64px;
+      border-bottom:1px solid var(--rule);
+      overflow:hidden;
+      background-image:url('1B7B1DA9-BF29-4C34-BC3F-469A9D751613.JPG');
+      background-size:cover;
+      background-position:center;
+      filter:saturate(0.78) contrast(1.06);
     }
 
     .field::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(120% 90% at 50% 45%,
-      rgba(0,0,0,0.00) 55%,
-      rgba(0,0,0,0.10) 75%,
-      rgba(0,0,0,0.22) 100%);
-
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(
+          120% 90% at 50% 45%,
+          rgba(0,0,0,0.00) 55%,
+          rgba(0,0,0,0.10) 75%,
+          rgba(0,0,0,0.22) 100%
+        );
     }
 
-    section.block{ padding: 70px 0; }
+    /* SECTIONS */
+    section.block{
+      padding:70px 0;
+    }
 
     .kicker{
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(27,27,27,0.60);
-      margin-bottom: 10px;
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:rgba(27,27,27,0.60);
+      margin-bottom:10px;
     }
 
     h2{
       font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: 30px;
-      margin: 0 0 18px 0;
+      font-weight:400;
+      font-size:30px;
+      margin:0 0 18px 0;
     }
 
     p{
-      font-size: 16px;
-      line-height: 1.9;
-      margin: 0 0 18px 0;
-      color: rgba(27,27,27,0.92);
+      font-size:16px;
+      line-height:1.9;
+      margin:0 0 18px 0;
+      color:rgba(27,27,27,0.92);
     }
 
     /* Pills */
     .pill{
       display:inline-block;
-      border: 1px solid rgba(107,31,31,0.35);
-      color: var(--wine);
-      border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-top: 10px;
-      margin-right: 8px;
+      border:1px solid rgba(107,31,31,0.35);
+      color:var(--wine);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      margin-top:10px;
+      margin-right:8px;
     }
 
-    .pill:hover{ background: rgba(107,31,31,0.07); }
+    .pill:hover{
+      background:rgba(107,31,31,0.07);
+    }
 
+    /* FOOTER */
     footer{
-      padding: 56px 0 70px 0;
-      color: rgba(27,27,27,0.55);
-      font-size: 13px;
-      border-top: 1px solid var(--rule);
+      padding:56px 0 70px 0;
+      color:rgba(27,27,27,0.55);
+      font-size:13px;
+      border-top:1px solid var(--rule);
     }
 
-    @media (max-width: 760px){
-      nav{ padding: 0 16px; }
-      .field{ min-height: 420px; }
-      section.block{ padding: 54px 0; }
+    /* MOBILE */
+    @media (max-width:760px){
+      nav{
+        padding:0 16px;
+      }
+
+      .field{
+        min-height:420px;
+      }
+
+      section.block{
+        padding:54px 0;
+      }
     }
   </style>
 </head>
 
 <body>
 
- <nav>
-  <div class="nav-inner">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="bio.html">Bio</a>
-    <a href="films.html">Films</a>
-    <a href="#current">Current</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="bio.html">Bio</a>
+      <a href="films.html">Films</a>
+      <a href="#current">Current</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
   <header class="hero">
     <div class="wrap">
       <div class="role">Writer · Director · Producer</div>
+
       <h1>Delfine Paolini</h1>
+
       <p class="thesis">
-        My work orbits <em>thanatological themes</em>, confronting mortality and its aftermath.
+        My work orbits <em>thanatological themes</em>,
+        confronting mortality and its aftermath.
       </p>
     </div>
   </header>
 
-  <div class="field" aria-label="Painterly red field"></div>
+  <div
+    class="field"
+    aria-label="Painterly red field">
+  </div>
 
   <!-- CURRENT -->
   <section id="current" class="block">
     <div class="wrap">
-      <div class="kicker">Current Feature</div>
+
+      <div class="kicker">
+        Current Feature
+      </div>
+
       <h2>Anne, After</h2>
+
       <p>
-        After a near-death experience, a woman struggling to return to her life begins to undergo a disturbing transformation.
+        After a near-death experience, a woman struggling to return
+        to her life begins to undergo a disturbing transformation.
       </p>
-      <a class="pill" href="le-rouge-originel.html">Enter Film</a>
+
+      <a class="pill" href="anne-after.html">
+        Enter Film
+      </a>
+
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="block">
     <div class="wrap">
-      <div class="kicker">Contact</div>
+
+      <div class="kicker">
+        Contact
+      </div>
+
       <h2>Inquiries</h2>
-      <p>Email: <a href="mailto:delfine@delfinepaolini.com" style="color:var(--wine);">delfine@delfinepaolini.com</a></p>
+
+      <p>
+        Email:
+        <a
+          href="mailto:delfine@delfinepaolini.com"
+          style="color:var(--wine);">
+          delfine@delfinepaolini.com
+        </a>
+      </p>
+
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Delfine Paolini / Near Waking Productions &amp; Le Rouge Films
+      © <span id="year"></span> Delfine Paolini
     </div>
   </footer>
 
   <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Automatically update copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-    // Fade-out transitions for page links (not hash links / not new tabs)
+    // Fade-out transitions for internal page links
     document.querySelectorAll('a[href]').forEach(a => {
+
       const href = a.getAttribute('href') || '';
       const isHash = href.startsWith('#');
       const isMail = href.startsWith('mailto:');
@@ -288,12 +355,21 @@ body::after{
       const newTab = a.getAttribute('target') === '_blank';
 
       if (!isHash && !isMail && !isExternal && !newTab) {
+
         a.addEventListener('click', (e) => {
+
           e.preventDefault();
+
           document.body.classList.add('page-out');
-          setTimeout(() => { window.location.href = href; }, 280);
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, 280);
+
         });
+
       }
+
     });
   </script>
 
