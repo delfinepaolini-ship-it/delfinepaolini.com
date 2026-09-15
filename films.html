@@ -12,10 +12,12 @@
       --bone:#F4F1EA;
       --charcoal:#1B1B1B;
       --wine:#6B1F1F;
-      --rule: rgba(27,27,27,0.12);
+      --rule:rgba(27,27,27,0.12);
     }
 
-    html { scroll-behavior: smooth; }
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
@@ -29,162 +31,200 @@
       margin:0 auto;
     }
 
-    .card.diptych{ border-width: 1.5px; }
-    .card.lro{ border-color: rgba(107,31,31,0.28); }
-    .card.reds{
-      border-color: rgba(27,27,27,0.22);
-      background: rgba(255,255,255,0.25);
-    }
-
     /* NAV */
     nav{
-      position: fixed;
-      top: 26px;
-      left: 0;
-      right: 0;
-      z-index: 50;
+      position:fixed;
+      top:26px;
+      left:0;
+      right:0;
+      z-index:50;
       display:flex;
-      justify-content: flex-end;
-      padding: 0 56px;
+      justify-content:flex-end;
+      padding:0 56px;
     }
+
     nav .nav-inner{
       display:flex;
-      gap: 22px;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      background: rgba(244,241,234,0.75);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(27,27,27,0.10);
-      border-radius: 999px;
-      padding: 10px 14px;
+      gap:22px;
+      font-size:12px;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      background:rgba(244,241,234,0.75);
+      -webkit-backdrop-filter:blur(6px);
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(27,27,27,0.10);
+      border-radius:999px;
+      padding:10px 14px;
     }
+
     nav a{
       text-decoration:none;
-      color: var(--charcoal);
-      opacity: 0.9;
+      color:var(--charcoal);
+      opacity:0.9;
     }
-    nav a:hover{ color: var(--wine); opacity: 1; }
+
+    nav a:hover{
+      color:var(--wine);
+      opacity:1;
+    }
 
     /* HEADER */
-    header{ padding: 120px 0 30px 0; }
+    header{
+      padding:120px 0 30px 0;
+    }
+
     h1{
       font-family:'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(40px, 5vw, 58px);
-      margin: 0 0 14px 0;
-    }
-    .sub{
-      font-size: 16px;
-      line-height: 1.8;
-      color: rgba(27,27,27,0.84);
-      max-width: 760px;
-      margin: 0;
+      font-weight:400;
+      font-size:clamp(40px, 5vw, 58px);
+      margin:0 0 14px 0;
     }
 
-    /* GRID + CARDS */
+    .sub{
+      font-size:16px;
+      line-height:1.8;
+      color:rgba(27,27,27,0.84);
+      max-width:760px;
+      margin:0;
+    }
+
+    /* GRID */
     .grid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-      padding: 34px 0 90px 0;
-    
-   .card{
-  grid-column: span 6;
-  border: 1px solid rgba(27,27,27,0.12);
-  border-radius: 18px;
-  padding: 18px;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(6px);
-  transition: transform 160ms ease, border-color 160ms ease;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
-}
-
-.card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(107,31,31,0.32);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-}
-
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+      padding:34px 0 90px 0;
     }
+
+    /* FILM CARDS */
+    .card{
+      grid-column:span 6;
+      border:1px solid rgba(27,27,27,0.12);
+      border-radius:18px;
+      padding:18px;
+      background:rgba(255,255,255,0.35);
+      -webkit-backdrop-filter:blur(6px);
+      backdrop-filter:blur(6px);
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+
+      display:flex;
+      flex-direction:column;
+      min-height:320px;
+      box-sizing:border-box;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(107,31,31,0.32);
+      box-shadow:0 18px 40px rgba(0,0,0,0.08);
+    }
+
+    /* Diptych films */
+    .card.diptych{
+      border-width:1.5px;
+    }
+
+    .card.lro{
+      border-color:rgba(107,31,31,0.28);
+    }
+
+    .card.reds{
+      border-color:rgba(27,27,27,0.22);
+      background:rgba(255,255,255,0.25);
+    }
+
     .card h2{
       font-family:'Playfair Display', serif;
-      font-weight: 400;
-      margin: 0 0 8px 0;
-      font-size: 24px;
-  .meta{
-  font-size: 12px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: rgba(27,27,27,0.62);
-  margin-bottom: 12px;
-}
+      font-weight:400;
+      margin:0 0 8px 0;
+      font-size:24px;
+    }
 
-.card p{
-  margin: 0 0 14px 0;
-  line-height: 1.85;
-  color: rgba(27,27,27,0.90);
-  flex-grow: 1;
-}
+    .meta{
+      font-size:12px;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      color:rgba(27,27,27,0.62);
+      margin-bottom:12px;
+    }
+
+    .card p{
+      margin:0 0 14px 0;
+      line-height:1.85;
+      color:rgba(27,27,27,0.90);
+      flex-grow:1;
+    }
 
     /* LINKS */
     .link{
       display:inline-block;
-      color: var(--wine);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      border: 1px solid rgba(107,31,31,0.35);
-      border-radius: 999px;
-      padding: 8px 10px;
+      color:var(--wine);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      border:1px solid rgba(107,31,31,0.35);
+      border-radius:999px;
+      padding:8px 10px;
     }
-    .link:hover{ background: rgba(107,31,31,0.07); }
 
-    /* Action row */
-    .card-actions{
-      margin-top: 18px;
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
+    .link:hover{
+      background:rgba(107,31,31,0.07);
     }
+
+    /* ENTER FILM / ACTION ROW */
+    .card-actions{
+      margin-top:18px;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
     .enter{
       display:inline-block;
-      color: var(--charcoal);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(27,27,27,0.35);
-      padding-bottom: 3px;
-      opacity: 0.9;
+      color:var(--charcoal);
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:1.6px;
+      text-decoration:none;
+      border-bottom:1px solid rgba(27,27,27,0.35);
+      padding-bottom:3px;
+      opacity:0.9;
     }
+
     .enter:hover{
-      color: var(--wine);
-      border-bottom-color: rgba(107,31,31,0.55);
-      opacity: 1;
+      color:var(--wine);
+      border-bottom-color:rgba(107,31,31,0.55);
+      opacity:1;
     }
 
     /* FOOTER */
     footer{
-      border-top: 1px solid var(--rule);
-      padding: 46px 0 60px 0;
-      color: rgba(27,27,27,0.55);
-      font-size: 13px;
+      border-top:1px solid var(--rule);
+      padding:46px 0 60px 0;
+      color:rgba(27,27,27,0.55);
+      font-size:13px;
     }
 
-    @media (max-width: 760px){
-      nav{ padding: 0 16px; }
-      .card{ grid-column: span 12; }
+    /* MOBILE */
+    @media (max-width:760px){
+      nav{
+        padding:0 16px;
+      }
+
+      .card{
+        grid-column:span 12;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <nav>
     <div class="nav-inner">
       <a href="index.html#about">About</a>
@@ -197,70 +237,135 @@
   <header>
     <div class="wrap">
       <h1>Films</h1>
-      <p class="sub">Selected narrative features and works in development.</p>
+      <p class="sub">
+        Selected narrative features and works in development.
+      </p>
     </div>
   </header>
 
   <main class="wrap">
     <div class="grid">
 
+      <!-- A WONDERFUL WAY WITH DRAGONS -->
       <div class="card">
         <h2>A Wonderful Way with Dragons</h2>
-        <div class="meta">Feature · Writer/Director/Producer</div>
-        <p>Debut feature, winning over 55 international awards, and 30 nominations.</p>
+
+        <div class="meta">
+          Feature · Writer/Director/Producer
+        </div>
+
+        <p>
+          Debut feature, winning over 55 international awards,
+          and 30 nominations.
+        </p>
+
         <div class="card-actions">
           <a class="enter" href="dragons.html">Enter Film</a>
-          <a class="link" href="https://deadline.com/2023/05/m3gan-star-violet-mcgraw-signs-indie-production-a-wonderful-way-with-dragons-1235366354/" target="_blank" rel="noopener">Press</a>
+
+          <a
+            class="link"
+            href="https://deadline.com/2023/05/m3gan-star-violet-mcgraw-signs-indie-production-a-wonderful-way-with-dragons-1235366354/"
+            target="_blank"
+            rel="noopener"
+          >Press</a>
         </div>
       </div>
 
+      <!-- ANNE, AFTER -->
       <div class="card diptych lro">
         <h2>Anne, After</h2>
-        <div class="meta">Feature · In Pre-Production</div>
-        <p>A film about moral consequence.</p>
+
+        <div class="meta">
+          Feature · In Pre-Production
+        </div>
+
+        <p>
+          A psychological horror film about grief, memory,
+          and the body's refusal to forget.
+        </p>
+
         <div class="card-actions">
-          <a class="enter" href="Anne-After.html">Enter Film</a>
-          <a class="link" href="index.html#contact">Request materials</a>
+          <a class="enter" href="anne-after.html">Enter Film</a>
+
+          <a class="link" href="index.html#contact">
+            Request Materials
+          </a>
         </div>
       </div>
 
+      <!-- REDS HEARTEN -->
       <div class="card diptych reds">
         <h2>Reds Hearten</h2>
-        <div class="meta">Feature · In Development</div>
+
+        <div class="meta">
+          Feature · In Development
+        </div>
+
         <p>
           Companion film to <em>Anne, After</em>, widening the descent —
           into rupture, ritual, and the architecture of the underworld.
         </p>
+
         <div class="card-actions">
           <a class="enter" href="reds-hearten.html">Enter Film</a>
-          <a class="link" href="index.html#contact">Request materials</a>
+
+          <a class="link" href="index.html#contact">
+            Request Materials
+          </a>
         </div>
       </div>
 
+      <!-- SKY, ZYPREXA, NIGHT -->
       <div class="card">
         <h2>Sky, Zyprexa, Night</h2>
-        <div class="meta">Feature · In Development</div>
+
+        <div class="meta">
+          Feature · In Development
+        </div>
+
         <p>
-          Teenage twins and their manic-depressive grandmother bicycle across the backroads of upstate New York,
-          drawn toward an evangelical healer’s tent-revival tour.
+          Teenage twins and their manic-depressive grandmother bicycle
+          across the backroads of upstate New York, drawn toward an
+          evangelical healer's tent-revival tour.
         </p>
+
         <div class="card-actions">
           <a class="enter" href="szn.html">Enter Film</a>
-          <a class="link" href="https://deadline.com/2025/10/casey-likes-delfine-paolinis-sky-zyprexa-night-1236568756/" target="_blank" rel="noopener">Press</a>
-          <a class="link" href="index.html#contact">Request materials</a>
+
+          <a
+            class="link"
+            href="https://deadline.com/2025/10/casey-likes-delfine-paolinis-sky-zyprexa-night-1236568756/"
+            target="_blank"
+            rel="noopener"
+          >Press</a>
+
+          <a class="link" href="index.html#contact">
+            Request Materials
+          </a>
         </div>
       </div>
 
+      <!-- UPSTATE -->
       <div class="card">
         <h2>Upstate</h2>
-        <div class="meta">Feature · In Development</div>
+
+        <div class="meta">
+          Feature · In Development
+        </div>
+
         <p>
-          In 1995, two preteen girls are bound together in friendship and dysfunction, each having lost a parent to suicide.
-          As they wrestle with the aftermath while bonding at a summer camp, one tries to pull the other from the abyss.
+          In 1995, two preteen girls are bound together in friendship
+          and dysfunction, each having lost a parent to suicide.
+          As they wrestle with the aftermath while bonding at a summer
+          camp, one tries to pull the other from the abyss.
         </p>
+
         <div class="card-actions">
           <a class="enter" href="upstate.html">Enter Film</a>
-          <a class="link" href="index.html#contact">Request materials</a>
+
+          <a class="link" href="index.html#contact">
+            Request Materials
+          </a>
         </div>
       </div>
 
@@ -268,7 +373,10 @@
   </main>
 
   <footer>
-    <div class="wrap">© 2026 Delfine Paolini</div>
+    <div class="wrap">
+      © 2026 Delfine Paolini
+    </div>
   </footer>
+
 </body>
 </html>
